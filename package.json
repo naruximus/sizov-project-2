@@ -1,0 +1,15 @@
+{
+  "name": "sizov-project-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "pnpm run -r test",
+    "dev": "pnpm run dev:next & pnpm run dev:strapi",
+    "dev:next": "pnpm run --filter next dev",
+    "dev:strapi": "pnpm run --filter strapi dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
