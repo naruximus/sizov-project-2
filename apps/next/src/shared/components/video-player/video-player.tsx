@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { Play, Volume2, Pause, Volume, RotateCcw } from 'lucide-react';
+import { Pause, Play, RotateCcw, Volume, Volume2 } from 'lucide-react';
 
 interface Props {
   src: string;
