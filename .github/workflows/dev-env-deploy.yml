@@ -29,7 +29,7 @@ jobs:
           [ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"  # This loads nvm
           [ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion
           export PATH=$PATH:/home/user/.nvm/versions/node/v18.20.7/bin
-          echo $NODE_OPTIONS
+          node heapsize.js
           cd sizov-project-2 && pnpm install"
 
       - name: Build Strapi
