@@ -22,9 +22,5 @@ jobs:
         run: sudo apt-get install -y sshpass
 
       - name: Build and Deploy to Server
-        env:
-          DEV_SERVER_USER: ${{ secrets.DEV_SERVER_USER }}
-          DEV_SERVER_PASSWORD: ${{ secrets.DEV_SERVER_PASSWORD }}
-          DEV_SERVER_IP: ${{ secrets.DEV_SERVER_IP }}
         run: |
-          sshpass -p "${{ secrets.DEV_SERVER_PASSWORD }}" ssh $DEV_SERVER_USER@$DEV_SERVER_IP "cd sizov-project-2 && cat package.json"
+          sshpass -p "${{ secrets.DEV_SERVER_PASSWORD }}" ssh ${{ secrets.DEV_SERVER_USER }}@${{ secrets.DEV_SERVER_IP }} "cd sizov-project-2 && cat package.json"
