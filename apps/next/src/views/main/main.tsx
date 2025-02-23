@@ -1,13 +1,17 @@
+import { getMainPage } from '@/entities/main-page';
+
 import { HeroSection } from './ui/hero-section';
 
-export function Main() {
+export async function Main() {
+  const { data } = await getMainPage();
+
   return (
     <>
       <HeroSection />
       <main className="pt-32 px-8 md:px-16 lg:px-24">
         <div className="max-w-6xl mx-auto space-y-32">
           {/* Hero Section */}
-
+          <h1 className="text-4xl font-bold">{data.title}</h1>
           {/* Journey Section */}
           <section className="max-w-2xl space-y-8">
             <p className="text-lg">
@@ -44,19 +48,13 @@ export function Main() {
                 <div className="space-y-2">
                   <div className="flex items-center gap-4">
                     <span className="text-neutral-500">-</span>
-                    <a
-                      href="#"
-                      className="hover:text-neutral-400 transition-colors"
-                    >
+                    <a href="#" className="hover:text-neutral-400 transition-colors">
                       Project Name One
                     </a>
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="text-neutral-500">-</span>
-                    <a
-                      href="#"
-                      className="hover:text-neutral-400 transition-colors"
-                    >
+                    <a href="#" className="hover:text-neutral-400 transition-colors">
                       Project Name Two
                     </a>
                   </div>
@@ -68,19 +66,13 @@ export function Main() {
                 <div className="space-y-2">
                   <div className="flex items-center gap-4">
                     <span className="text-neutral-500">-</span>
-                    <a
-                      href="#"
-                      className="hover:text-neutral-400 transition-colors"
-                    >
+                    <a href="#" className="hover:text-neutral-400 transition-colors">
                       Another Project
                     </a>
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="text-neutral-500">-</span>
-                    <a
-                      href="#"
-                      className="hover:text-neutral-400 transition-colors"
-                    >
+                    <a href="#" className="hover:text-neutral-400 transition-colors">
                       Cool Video Project
                     </a>
                   </div>
