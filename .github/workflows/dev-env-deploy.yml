@@ -24,7 +24,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sshpass -p "${{ secrets.DEV_SERVER_PASSWORD }}" ssh -v ${{ secrets.DEV_SERVER_USER }}@${{ secrets.DEV_SERVER_IP }} "source ~/.bashrc && cd && cd sizov-project-2 && pnpm install"
+          sshpass -p "${{ secrets.DEV_SERVER_PASSWORD }}" ssh -v ${{ secrets.DEV_SERVER_USER }}@${{ secrets.DEV_SERVER_IP }} "
+          export NVM_DIR=\"$HOME/.nvm\"
+          [ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"  # This loads nvm
+          [ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion
+          export PATH=$PATH:/home/user/.nvm/versions/node/v18.20.7/bin
+          cd sizov-project-2 && pnpm install"
 
       - name: Build Strapi
         run: |
