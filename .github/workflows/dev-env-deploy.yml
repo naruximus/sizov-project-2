@@ -24,7 +24,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sshpass -p "${{ secrets.DEV_SERVER_PASSWORD }}" ssh -v ${{ secrets.DEV_SERVER_USER }}@${{ secrets.DEV_SERVER_IP }} "source ~/.bashrc && cd sizov-project-2 && pnpm install"
+          sshpass -p "${{ secrets.DEV_SERVER_PASSWORD }}" ssh -v ${{ secrets.DEV_SERVER_USER }}@${{ secrets.DEV_SERVER_IP }} "export PATH=$PATH:/home/user/.nvm/versions/node/v18.20.7/bin/pnpm && cd sizov-project-2 && pnpm install"
 
       - name: Build Strapi
         run: |
