@@ -3,7 +3,7 @@ name: Deploy Straou to DevServer
 on:
   push:
     branches:
-      - main
+      - ci-cd
 
 jobs:
   deploy:
@@ -29,4 +29,4 @@ jobs:
         run: |
           sshpass -p "$DEV_SERVER_PASSWORD" ssh $DEV_SERVER_USER@$DEV_SERVER_IP "cd sizov-project-2 && pnpm install"
           sshpass -p "$DEV_SERVER_PASSWORD" ssh $DEV_SERVER_USER@$DEV_SERVER_IP "cd sizov-project-2 && pnpm run --filter strapi build"
-          sshpass -p "$DEV_SERVER_PASSWORD" ssh $DEV_SERVER_USER@$DEV_SERVER_IP "cd sizov-project-2 && forever start -c "pnpm run --filter strapi start" ./"
+          sshpass -p "$DEV_SERVER_PASSWORD" ssh $DEV_SERVER_USER@$DEV_SERVER_IP "cd sizov-project-2 && forever start -c pnpm run --filter strapi start ./"
