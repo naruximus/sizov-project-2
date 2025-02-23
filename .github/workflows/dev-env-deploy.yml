@@ -1,4 +1,4 @@
-name: Deploy to Server
+name: Deploy Straou to DevServer
 
 on:
   push:
@@ -18,21 +18,15 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build Strapi
-        run: npm run build
-
       - name: Install sshpass
         run: sudo apt-get install -y sshpass
 
-      - name: Deploy to Server
+      - name: Build and Deploy to Server
         env:
-          SERVER_USER: ${{ secrets.SERVER_USER }}
-          SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
-          SERVER_IP: ${{ secrets.SERVER_IP }}
-          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+          SERVER_USER: ${{ secrets.DEV_SERVER_USER }}
+          SERVER_PASSWORD: ${{ secrets.DEV_SERVER_PASSWORD }}
+          SERVER_IP: ${{ secrets.DEV_SERVER_IP }}
         run: |
-          sshpass -p "$SERVER_PASSWORD" rsync -avz --delete-after --exclude='node_modules' --exclude='.git' ./ $SERVER_USER@$SERVER_IP:$DEPLOY_PATH
-          sshpass -p "$SERVER_PASSWORD" ssh $SERVER_USER@$SERVER_IP "cd $DEPLOY_PATH && npm install --production && pm2 restart strapi || pm2 start npm --name 'strapi' -- run start"
+          sshpass -p "$SERVER_PASSWORD" ssh $SERVER_USER@$SERVER_IP "cd sizov-project-2 && pnpm install"
+          sshpass -p "$SERVER_PASSWORD" ssh $SERVER_USER@$SERVER_IP "cd sizov-project-2 && pnpm run --filter strapi build"
+          sshpass -p "$SERVER_PASSWORD" ssh $SERVER_USER@$SERVER_IP "cd sizov-project-2 && forever start -c "pnpm run --filter strapi start" ./"
