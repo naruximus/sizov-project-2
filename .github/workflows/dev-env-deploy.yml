@@ -23,4 +23,4 @@ jobs:
 
       - name: Build and Deploy to Server
         run: |
-          sshpass -p "${{ secrets.DEV_SERVER_PASSWORD }}" ssh ${{ secrets.DEV_SERVER_USER }}@${{ secrets.DEV_SERVER_IP }} "cd && cd sizov-project-2 && cat package.json"
+          sshpass -p "${{ secrets.DEV_SERVER_PASSWORD }}" ssh -v ${{ secrets.DEV_SERVER_USER }}@${{ secrets.DEV_SERVER_IP }} "cd && cd sizov-project-2 && cat package.json"
