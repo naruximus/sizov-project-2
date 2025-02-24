@@ -1,7 +1,11 @@
+import { getMainPage } from '@/entities/main-page';
+
 import { HeroSection } from './ui/hero-section';
 import { NavigationBlocks } from './ui/navigation-blocks';
 
-export function Main() {
+export async function Main() {
+  const { data } = await getMainPage();
+
   return (
     <>
       <div className="w-full">

@@ -1,20 +1,22 @@
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-import { FlatCompat } from '@eslint/eslintrc';
-
-import react from 'eslint-plugin-react';
-import reactHooks from 'eslint-plugin-react-hooks';
-import imports from 'eslint-plugin-import';
-import unusedImports from 'eslint-plugin-unused-imports';
-import sortExports from 'eslint-plugin-sort-exports';
 import prettier from 'eslint-plugin-prettier';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import { FlatCompat } from '@eslint/eslintrc';
+import imports from 'eslint-plugin-import';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import sortExports from 'eslint-plugin-sort-exports';
+import unusedImports from 'eslint-plugin-unused-imports';
+import typescriptParser from '@typescript-eslint/parser';
+import typescriptPlugin from '@typescript-eslint/eslint-plugin';
+
+const _filename = fileURLToPath(import.meta.url);
+const _dirname = dirname(_filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
+  baseDirectory: _dirname,
 });
 
 const eslintConfig = [
@@ -23,17 +25,18 @@ const eslintConfig = [
   },
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
+    files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
+      parser: typescriptParser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        project: './tsconfig.json',
+      },
       globals: {
         window: 'readonly',
         document: 'readonly',
         navigator: 'readonly',
-      },
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
       },
     },
     linterOptions: {
@@ -46,6 +49,7 @@ const eslintConfig = [
       'unused-imports': unusedImports,
       'sort-exports': sortExports,
       prettier,
+      '@typescript-eslint': typescriptPlugin,
     },
     rules: {
       'unused-imports/no-unused-imports': 'error',
@@ -62,7 +66,12 @@ const eslintConfig = [
       '@typescript-eslint/no-unsafe-argument': 'off',
       'sort-exports/sort-exports': [
         'error',
-        { sortDir: 'asc', ignoreCase: true, sortExportKindFirst: 'type', pattern: '**/index.ts' },
+        {
+          sortDir: 'asc',
+          ignoreCase: true,
+          sortExportKindFirst: 'type',
+          pattern: '**/index.ts',
+        },
       ],
       '@typescript-eslint/naming-convention': [
         'error',
@@ -74,13 +83,7 @@ const eslintConfig = [
       'import/order': [
         'error',
         {
-          groups: [
-            'builtin',
-            'external',
-            'internal',
-            ['parent', 'sibling', 'index'],
-            'unknown',
-          ],
+          groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index'], 'unknown'],
           pathGroups: [
             {
               pattern: 'react',
