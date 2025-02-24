@@ -4,8 +4,6 @@ import { HeroSection } from './ui/hero-section';
 import { NavigationBlocks } from './ui/navigation-blocks';
 
 export async function Main() {
-  const { data } = await getMainPage();
-
   return (
     <>
       <div className="w-full">
@@ -16,8 +14,7 @@ export async function Main() {
               {/* Journey Section */}
               <section className="max-w-2xl space-y-8">
                 <p className="text-lg">
-                  10 years ago I quit my job and started exploring the world
-                  with:
+                  10 years ago I quit my job and started exploring the world with:
                 </p>
 
                 <ul className="space-y-2 text-neutral-300">
@@ -50,19 +47,13 @@ export async function Main() {
                     <div className="space-y-2">
                       <div className="flex items-center gap-4">
                         <span className="text-neutral-500">-</span>
-                        <a
-                          href="#"
-                          className="hover:text-neutral-400 transition-colors"
-                        >
+                        <a href="#" className="hover:text-neutral-400 transition-colors">
                           Project Name One
                         </a>
                       </div>
                       <div className="flex items-center gap-4">
                         <span className="text-neutral-500">-</span>
-                        <a
-                          href="#"
-                          className="hover:text-neutral-400 transition-colors"
-                        >
+                        <a href="#" className="hover:text-neutral-400 transition-colors">
                           Project Name Two
                         </a>
                       </div>
@@ -74,19 +65,13 @@ export async function Main() {
                     <div className="space-y-2">
                       <div className="flex items-center gap-4">
                         <span className="text-neutral-500">-</span>
-                        <a
-                          href="#"
-                          className="hover:text-neutral-400 transition-colors"
-                        >
+                        <a href="#" className="hover:text-neutral-400 transition-colors">
                           Another Project
                         </a>
                       </div>
                       <div className="flex items-center gap-4">
                         <span className="text-neutral-500">-</span>
-                        <a
-                          href="#"
-                          className="hover:text-neutral-400 transition-colors"
-                        >
+                        <a href="#" className="hover:text-neutral-400 transition-colors">
                           Cool Video Project
                         </a>
                       </div>
