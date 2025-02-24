@@ -1,0 +1,9 @@
+{
+  "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.organizeImports": "never"
+  },
+  "findUnusedExports.detectCircularImports": true
+}
