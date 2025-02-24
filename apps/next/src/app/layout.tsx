@@ -12,13 +12,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="ru">
+      <body className="min-h-screen overflow-x-hidden">
         <div className="min-h-screen bg-[#1C1C1C] text-white font-mono">
           <Navigation />
-
-          {children}
-
+          <main className="flex-grow">
+            {children}
+          </main>
           <Footer />
         </div>
       </body>
