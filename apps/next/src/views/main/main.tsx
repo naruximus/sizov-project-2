@@ -1,12 +1,12 @@
 import { getMainPage } from '@/entities/main-page';
-
 import { HeroSection } from './ui/hero-section';
+import { NavigationBlocks } from './ui/navigation-blocks';
 
 export async function Main() {
   const { data } = await getMainPage();
 
   return (
-    <>
+    <div className="w-full">
       <HeroSection />
       <main className="pt-32 px-8 md:px-16 lg:px-24">
         <div className="max-w-6xl mx-auto space-y-32">
@@ -82,6 +82,9 @@ export async function Main() {
           </section>
         </div>
       </main>
-    </>
+
+      {/* Navigation Blocks */}
+      <NavigationBlocks />
+    </div>
   );
 }
