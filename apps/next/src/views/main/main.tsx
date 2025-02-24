@@ -1,4 +1,5 @@
 import { getMainPage } from '@/entities/main-page';
+
 import { HeroSection } from './ui/hero-section';
 import { NavigationBlocks } from './ui/navigation-blocks';
 
