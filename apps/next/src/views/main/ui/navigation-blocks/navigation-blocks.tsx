@@ -10,7 +10,7 @@ export function NavigationBlocks() {
     const scrollPosition = window.scrollY;
     parallaxRefs.current.forEach((ref) => {
       if (ref) {
-        ref.style.transform = `translate(-50%, -50%) translateY(${scrollPosition * 0.05}px)`;
+        ref.style.transform = `translate(-50%, -50%) translateY(${scrollPosition * 0.06}px)`;
       }
     });
   };
