@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "actor_pages",
+  "info": {
+    "singularName": "actor-page",
+    "pluralName": "actor-pages",
+    "displayName": "ActorPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "portfolio": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}
