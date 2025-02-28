@@ -339,6 +339,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiActorPageActorPage extends Struct.SingleTypeSchema {
   collectionName: 'actor_pages';
   info: {
+    description: '';
     displayName: 'ActorPage';
     pluralName: 'actor-pages';
     singularName: 'actor-page';
@@ -358,12 +359,14 @@ export interface ApiActorPageActorPage extends Struct.SingleTypeSchema {
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    video: Schema.Attribute.Media<'files' | 'videos'> & Schema.Attribute.Required;
   };
 }
 
 export interface ApiMainPageMainPage extends Struct.SingleTypeSchema {
   collectionName: 'main_pages';
   info: {
+    description: '';
     displayName: 'MainPage';
     pluralName: 'main-pages';
     singularName: 'main-page';
@@ -381,6 +384,7 @@ export interface ApiMainPageMainPage extends Struct.SingleTypeSchema {
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    video: Schema.Attribute.Media<'files' | 'videos'> & Schema.Attribute.Required;
   };
 }
 
