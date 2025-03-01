@@ -360,6 +360,7 @@ export interface ApiActorPageActorPage extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     video: Schema.Attribute.Media<'files' | 'videos'> & Schema.Attribute.Required;
+    videoPoster: Schema.Attribute.Media<'files' | 'images'> & Schema.Attribute.Required;
   };
 }
 
@@ -385,6 +386,7 @@ export interface ApiMainPageMainPage extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     video: Schema.Attribute.Media<'files' | 'videos'> & Schema.Attribute.Required;
+    videoPoster: Schema.Attribute.Media<'files' | 'images'> & Schema.Attribute.Required;
   };
 }
 

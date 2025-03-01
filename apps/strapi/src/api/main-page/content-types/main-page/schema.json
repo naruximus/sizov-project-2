@@ -15,9 +15,18 @@
       "type": "string"
     },
     "video": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "files",
         "videos"
+      ]
+    },
+    "videoPoster": {
+      "allowedTypes": [
+        "files",
+        "images"
       ],
       "type": "media",
       "multiple": false,
