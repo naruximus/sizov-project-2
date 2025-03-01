@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import { withNextVideo } from 'next-video/process';
 
 import { urlToRemotePattern } from '@/shared/utils/url-to-remote-pattern';
 
@@ -21,6 +22,17 @@ const nextConfig: NextConfig = {
         : []),
     ],
   },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.(mov|mp4|webm)$/i,
+      type: 'asset',
+      generator: {
+        filename: 'static/media/[name].[hash][ext]',
+      },
+    });
+    return config;
+  },
+  output: 'standalone',
 };
 
-export default nextConfig;
+export default withNextVideo(nextConfig);

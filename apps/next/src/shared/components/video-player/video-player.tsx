@@ -1,26 +1,30 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
-import { Pause, Play, RotateCcw, Volume, Volume2 } from 'lucide-react';
 
-interface Props {
-  src: string;
-  type: string;
-  poster?: string;
+import { useEffect, useRef, useState } from 'react';
+import clsx from 'clsx';
+import { Pause, Play, RotateCcw, Volume, Volume2 } from 'lucide-react';
+import Video, { type VideoProps } from 'next-video';
+
+type Props = VideoProps & {
   showPlayPauseButton?: boolean;
   showMuteButton?: boolean;
   showRestartButton?: boolean;
-}
+};
 
 export const VideoPlayer = ({
-  src,
-  type,
-  poster,
   showPlayPauseButton = false,
   showMuteButton = false,
   showRestartButton = false,
+  autoPlay = true,
+  loop = true,
+  playsInline = true,
+  muted = true,
+  controls = false,
+  className = '',
+  ...videoProps
 }: Props) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(muted);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -49,6 +53,7 @@ export const VideoPlayer = ({
       setIsPlaying(true);
     }
   };
+
   useEffect(() => {
     const videoElement = videoRef.current;
 
@@ -80,7 +85,7 @@ export const VideoPlayer = ({
   return (
     <div className="flex justify-center items-center relative">
       <div className="absolute bottom-4 right-4 flex gap-2 z-10">
-        {showPlayPauseButton && (
+        {showRestartButton && (
           <button
             onClick={handleRestartVideo}
             disabled={!isLoaded}
@@ -89,13 +94,13 @@ export const VideoPlayer = ({
             <RotateCcw />
           </button>
         )}
-        {showRestartButton && (
+        {showPlayPauseButton && (
           <button
             onClick={handlePlayPauseToggle}
             disabled={!isLoaded}
             className="disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
-            {isPlaying ? <Play /> : <Pause />}
+            {isPlaying ? <Pause /> : <Play />}
           </button>
         )}
         {showMuteButton && (
@@ -108,19 +113,16 @@ export const VideoPlayer = ({
           </button>
         )}
       </div>
-      <video
-        height={500}
-        className="w-full"
+      <Video
+        {...videoProps}
         ref={videoRef}
-        poster={poster}
-        autoPlay={isPlaying}
+        autoPlay={autoPlay}
+        loop={loop}
+        className={clsx('!aspect-auto w-full', className)}
+        playsInline={playsInline}
         muted={isMuted}
-        playsInline
-        loop
-      >
-        <source src={src} type={type} />
-        Ваш браузер не поддерживает видео.
-      </video>
+        controls={controls}
+      />
     </div>
   );
 };

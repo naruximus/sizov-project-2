@@ -43,3 +43,18 @@ export const StrapiMedia = z.object({
 });
 
 export type TStrapiMedia = z.infer<typeof StrapiMedia>;
+
+export const StrapiMediaVideo = StrapiMedia.extend({
+  width: z.number().nullable(),
+  height: z.number().nullable(),
+  formats: z
+    .object({
+      thumbnail: StrapiMediaFormat,
+      small: StrapiMediaFormat,
+      medium: StrapiMediaFormat,
+      large: StrapiMediaFormat,
+    })
+    .nullable(),
+});
+
+export type TStrapiMediaVideo = z.infer<typeof StrapiMediaVideo>;
