@@ -15,7 +15,6 @@ export async function Actor() {
           poster={getImageUrl(data.videoPoster.formats.small)}
           showMuteButton
           showRestartButton
-          showPlayPauseButton
         />
       </section>
       <section className="py-4 px-8 md:px-16 lg:px-24">

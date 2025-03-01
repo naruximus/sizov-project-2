@@ -2,17 +2,15 @@
 
 import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
-import { Pause, Play, RotateCcw, Volume, Volume2 } from 'lucide-react';
+import { RotateCcw, Volume, Volume2 } from 'lucide-react';
 import Video, { type VideoProps } from 'next-video';
 
 type Props = VideoProps & {
-  showPlayPauseButton?: boolean;
   showMuteButton?: boolean;
   showRestartButton?: boolean;
 };
 
 export const VideoPlayer = ({
-  showPlayPauseButton = false,
   showMuteButton = false,
   showRestartButton = false,
   autoPlay = true,
@@ -25,7 +23,6 @@ export const VideoPlayer = ({
 }: Props) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(muted);
-  const [isPlaying, setIsPlaying] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
 
   const handleMuteToggle = () => {
@@ -35,22 +32,11 @@ export const VideoPlayer = ({
       setIsMuted(newMuteState);
     }
   };
-  const handlePlayPauseToggle = () => {
-    if (videoRef.current) {
-      if (!videoRef.current.paused) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
 
   const handleRestartVideo = () => {
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
       videoRef.current.play();
-      setIsPlaying(true);
     }
   };
 
@@ -88,25 +74,16 @@ export const VideoPlayer = ({
         {showRestartButton && (
           <button
             onClick={handleRestartVideo}
-            disabled={!isLoaded}
+            // disabled={!isLoaded}
             className="disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             <RotateCcw />
           </button>
         )}
-        {showPlayPauseButton && (
-          <button
-            onClick={handlePlayPauseToggle}
-            disabled={!isLoaded}
-            className="disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
-          >
-            {isPlaying ? <Pause /> : <Play />}
-          </button>
-        )}
         {showMuteButton && (
           <button
             onClick={handleMuteToggle}
-            disabled={!isLoaded}
+            // disabled={!isLoaded}
             className="disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {isMuted ? <Volume /> : <Volume2 />}
