@@ -5,6 +5,6 @@ import { MainPage } from './main-page.model';
 
 export const getMainPage = createApi({
   method: 'GET',
-  endpoint: 'main-page',
+  endpoint: 'main-page?populate=*',
   responseSchema: StrapiResponse(MainPage),
 });

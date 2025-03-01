@@ -1,27 +1,28 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
-import { Pause, Play, RotateCcw, Volume, Volume2 } from 'lucide-react';
 
-interface Props {
-  src: string;
-  type: string;
-  poster?: string;
-  showPlayPauseButton?: boolean;
+import { useEffect, useRef, useState } from 'react';
+import clsx from 'clsx';
+import { RotateCcw, Volume, Volume2 } from 'lucide-react';
+import Video, { type VideoProps } from 'next-video';
+
+type Props = VideoProps & {
   showMuteButton?: boolean;
   showRestartButton?: boolean;
-}
+};
 
 export const VideoPlayer = ({
-  src,
-  type,
-  poster,
-  showPlayPauseButton = false,
   showMuteButton = false,
   showRestartButton = false,
+  autoPlay = true,
+  loop = true,
+  playsInline = true,
+  muted = true,
+  controls = false,
+  className = '',
+  ...videoProps
 }: Props) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMuted, setIsMuted] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(muted);
   const [isLoaded, setIsLoaded] = useState(false);
 
   const handleMuteToggle = () => {
@@ -31,24 +32,14 @@ export const VideoPlayer = ({
       setIsMuted(newMuteState);
     }
   };
-  const handlePlayPauseToggle = () => {
-    if (videoRef.current) {
-      if (!videoRef.current.paused) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
 
   const handleRestartVideo = () => {
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
       videoRef.current.play();
-      setIsPlaying(true);
     }
   };
+
   useEffect(() => {
     const videoElement = videoRef.current;
 
@@ -80,47 +71,35 @@ export const VideoPlayer = ({
   return (
     <div className="flex justify-center items-center relative">
       <div className="absolute bottom-4 right-4 flex gap-2 z-10">
-        {showPlayPauseButton && (
+        {showRestartButton && (
           <button
             onClick={handleRestartVideo}
-            disabled={!isLoaded}
+            // disabled={!isLoaded}
             className="disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             <RotateCcw />
           </button>
         )}
-        {showRestartButton && (
-          <button
-            onClick={handlePlayPauseToggle}
-            disabled={!isLoaded}
-            className="disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
-          >
-            {isPlaying ? <Play /> : <Pause />}
-          </button>
-        )}
         {showMuteButton && (
           <button
             onClick={handleMuteToggle}
-            disabled={!isLoaded}
+            // disabled={!isLoaded}
             className="disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {isMuted ? <Volume /> : <Volume2 />}
           </button>
         )}
       </div>
-      <video
-        height={500}
-        className="w-full"
+      <Video
+        {...videoProps}
         ref={videoRef}
-        poster={poster}
-        autoPlay={isPlaying}
+        autoPlay={autoPlay}
+        loop={loop}
+        className={clsx('!aspect-auto w-full', className)}
+        playsInline={playsInline}
         muted={isMuted}
-        playsInline
-        loop
-      >
-        <source src={src} type={type} />
-        Ваш браузер не поддерживает видео.
-      </video>
+        controls={controls}
+      />
     </div>
   );
 };

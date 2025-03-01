@@ -1,5 +1,7 @@
 import { getActorPage } from '@/entities/actor-page';
 import { Masonry, VideoPlayer } from '@/shared/components';
+import { getImageUrl } from '@/shared/utils/get-image-url';
+import { getVideoUrl } from '@/shared/utils/get-video-url';
 
 export async function Actor() {
   const { data } = await getActorPage();
@@ -8,12 +10,11 @@ export async function Actor() {
     <main>
       <section className="pt-10">
         <VideoPlayer
-          src="/greet.mov"
+          src={getVideoUrl(data.video)}
           type="video/mp4"
-          poster="/greet.png"
+          poster={getImageUrl(data.videoPoster.formats.small)}
           showMuteButton
           showRestartButton
-          showPlayPauseButton
         />
       </section>
       <section className="py-4 px-8 md:px-16 lg:px-24">
