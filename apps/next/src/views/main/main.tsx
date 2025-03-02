@@ -3,6 +3,7 @@ import { getImageUrl } from '@/shared/utils/get-image-url';
 import { getVideoUrl } from '@/shared/utils/get-video-url';
 
 import { HeroSection } from './ui/hero-section';
+import { VideosSection } from './ui/videos-section';
 
 export async function Main() {
   const { data } = await getMainPage();
@@ -13,6 +14,7 @@ export async function Main() {
         src={getVideoUrl(data.video)}
         poster={getImageUrl(data.videoPoster.formats.small)}
       />
+      <VideosSection />
       <main className="pt-32 px-8 md:px-16 lg:px-24">
         <div className="max-w-6xl mx-auto space-y-32">
           {/* Hero Section */}
