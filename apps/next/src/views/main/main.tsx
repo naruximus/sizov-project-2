@@ -1,22 +1,24 @@
+import { getIntegratedVideos } from '@/entities/integrated-videos';
 import { getMainPage } from '@/entities/main-page';
 import { getImageUrl } from '@/shared/utils/get-image-url';
 import { getVideoUrl } from '@/shared/utils/get-video-url';
 
 import { HeroSection } from './ui/hero-section';
+import { VideosSection } from './ui/videos-section';
 
 export async function Main() {
-  const { data } = await getMainPage();
+  const { data: mainPage } = await getMainPage();
+  const { data: integratedVideos } = await getIntegratedVideos();
 
   return (
     <>
       <HeroSection
-        src={getVideoUrl(data.video)}
-        poster={getImageUrl(data.videoPoster.formats.small)}
+        src={getVideoUrl(mainPage.video)}
+        poster={getImageUrl(mainPage.videoPoster.formats.small)}
       />
       <main className="pt-32 px-8 md:px-16 lg:px-24">
         <div className="max-w-6xl mx-auto space-y-32">
-          {/* Hero Section */}
-          <h1 className="text-4xl font-bold">{data.title}</h1>
+          <h1 className="text-4xl font-bold">{mainPage.title}</h1>
           {/* Journey Section */}
           <section className="max-w-2xl space-y-8">
             <p className="text-lg">
@@ -85,6 +87,8 @@ export async function Main() {
               </div>
             </div>
           </section>
+
+          <VideosSection videos={integratedVideos} />
         </div>
       </main>
     </>
