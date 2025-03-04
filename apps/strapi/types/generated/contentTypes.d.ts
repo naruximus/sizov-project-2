@@ -364,6 +364,35 @@ export interface ApiActorPageActorPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiIntegratedVideoIntegratedVideo extends Struct.CollectionTypeSchema {
+  collectionName: 'integrated_videos';
+  info: {
+    displayName: 'IntegratedVideo';
+    pluralName: 'integrated-videos';
+    singularName: 'integrated-video';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::integrated-video.integrated-video'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    source: Schema.Attribute.String & Schema.Attribute.Required;
+    timing: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMainPageMainPage extends Struct.SingleTypeSchema {
   collectionName: 'main_pages';
   info: {
@@ -818,6 +847,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::actor-page.actor-page': ApiActorPageActorPage;
+      'api::integrated-video.integrated-video': ApiIntegratedVideoIntegratedVideo;
       'api::main-page.main-page': ApiMainPageMainPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
