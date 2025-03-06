@@ -18,7 +18,7 @@ export const PhotoLink = ({ href, imageSrc, imageAlt, animationData }: Props) =>
 
   return (
     <Link href={href}>
-      <div className="relative w-full h-[350px] md:h-[871px]">
+      <div className="relative w-full h-[350px] md:h-[666px]">
         <Image
           src={imageSrc}
           alt={imageAlt}
