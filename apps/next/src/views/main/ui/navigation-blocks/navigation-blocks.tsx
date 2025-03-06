@@ -9,7 +9,7 @@ import actorBlack from '@/shared/assets/lotties/actor_black.json';
 import contactBlack from '@/shared/assets/lotties/contact_black.json';
 import horizontalWhite from '@/shared/assets/lotties/Horizontal_white.json';
 import photosWhite from '@/shared/assets/lotties/photos_white.json'
-import verticalWhite from '@/shared/assets/lotties/vertical_white.json';
+import verticalWhite from '@/shared/assets/lotties/Vertical_white.json';
 import { PhotoLink } from '@/views/main/ui/navigation-blocks/ui/photo-link';
 
 export function NavigationBlocks() {
