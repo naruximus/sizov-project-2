@@ -1,8 +1,10 @@
 'use client';
 
-import imgVideo from '@/shared/assets/images/1.jpg';
-import imgContacts from '@/shared/assets/images/2.jpg';
-import imgPortfolio from '@/shared/assets/images/3.jpg';
+import imgActor from '@/shared/assets/images/Actor.jpg';
+import imgContacts from '@/shared/assets/images/Contact.jpg';
+import imgPhotos from '@/shared/assets/images/Photos.jpg';
+import imgHorizontal from '@/shared/assets/images/Video_Horizontal.jpg';
+import imgVertical from '@/shared/assets/images/Video_Vertical.jpg';
 import actorBlack from '@/shared/assets/lotties/actor_black.json';
 import contactBlack from '@/shared/assets/lotties/contact_black.json';
 import horizontalBlack from '@/shared/assets/lotties/Horizontal_black.json';
@@ -13,32 +15,34 @@ import { PhotoLink } from '@/views/main/ui/navigation-blocks/ui/photo-link';
 export function NavigationBlocks() {
   const links = [
     {
-      href: '/portfolio',
-      imageSrc: imgPortfolio,
-      imageAlt: 'Портфолио',
+      href: '/videoHorizontal',
+      imageSrc: imgHorizontal,
+      imageAlt: 'Горизонтальные видео',
       animationData: horizontalBlack,
-      text: 'Портфолио',
+      text: 'Горизонтальные видео',
     },
+
     {
-      href: '/video',
-      imageSrc: imgVideo,
-      imageAlt: 'Видео',
+      href: '/videoVertical',
+      imageSrc: imgVertical,
+      imageAlt: 'Вертикальные видео',
       animationData: verticalBlack,
-      text: 'Видео',
+      text: 'Вертикальные видео',
     },
+
     {
-      href: '/contacts',
-      imageSrc: imgContacts,
-      imageAlt: 'Контакты',
-      animationData: actorBlack,
-      text: 'Контакты',
-    },
-    {
-      href: '/contacts',
-      imageSrc: imgContacts,
-      imageAlt: 'Контакты',
+      href: '/photos',
+      imageSrc: imgPhotos,
+      imageAlt: 'Фото',
       animationData: photosBlack,
-      text: 'Контакты',
+      text: 'Фото',
+    },
+    {
+      href: '/actor',
+      imageSrc: imgActor,
+      imageAlt: 'Актер',
+      animationData: actorBlack,
+      text: 'Актер',
     },
     {
       href: '/contacts',
