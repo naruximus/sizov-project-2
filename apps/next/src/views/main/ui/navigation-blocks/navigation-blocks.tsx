@@ -1,15 +1,15 @@
 'use client';
 
-import imgActor from '@/shared/assets/images/Actor.jpg';
+import imgActor from '@/shared/assets/images/Actor2.jpg';
 import imgContacts from '@/shared/assets/images/Contact.jpg';
 import imgPhotos from '@/shared/assets/images/Photos.jpg';
 import imgHorizontal from '@/shared/assets/images/Video_Horizontal.jpg';
 import imgVertical from '@/shared/assets/images/Video_Vertical.jpg';
 import actorBlack from '@/shared/assets/lotties/actor_black.json';
 import contactBlack from '@/shared/assets/lotties/contact_black.json';
-import horizontalBlack from '@/shared/assets/lotties/Horizontal_black.json';
-import photosBlack from '@/shared/assets/lotties/photos_black.json';
-import verticalBlack from '@/shared/assets/lotties/Vertical_black.json';
+import horizontalWhite from '@/shared/assets/lotties/Horizontal_white.json';
+import photosWhite from '@/shared/assets/lotties/photos_white.json'
+import verticalWhite from '@/shared/assets/lotties/vertical_white.json';
 import { PhotoLink } from '@/views/main/ui/navigation-blocks/ui/photo-link';
 
 export function NavigationBlocks() {
@@ -18,7 +18,7 @@ export function NavigationBlocks() {
       href: '/videoHorizontal',
       imageSrc: imgHorizontal,
       imageAlt: 'Горизонтальные видео',
-      animationData: horizontalBlack,
+      animationData: horizontalWhite,
       text: 'Горизонтальные видео',
     },
 
@@ -26,7 +26,7 @@ export function NavigationBlocks() {
       href: '/videoVertical',
       imageSrc: imgVertical,
       imageAlt: 'Вертикальные видео',
-      animationData: verticalBlack,
+      animationData: verticalWhite,
       text: 'Вертикальные видео',
     },
 
@@ -34,7 +34,7 @@ export function NavigationBlocks() {
       href: '/photos',
       imageSrc: imgPhotos,
       imageAlt: 'Фото',
-      animationData: photosBlack,
+      animationData: photosWhite,
       text: 'Фото',
     },
     {
