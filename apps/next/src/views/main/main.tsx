@@ -3,6 +3,7 @@ import { getImageUrl } from '@/shared/utils/get-image-url';
 import { getVideoUrl } from '@/shared/utils/get-video-url';
 
 import { HeroSection } from './ui/hero-section';
+import { NavigationBlocks } from './ui/navigation-blocks';
 
 export async function Main() {
   const { data } = await getMainPage();
@@ -87,6 +88,7 @@ export async function Main() {
           </section>
         </div>
       </main>
+      <NavigationBlocks />
     </>
   );
 }
