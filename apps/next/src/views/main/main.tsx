@@ -14,7 +14,7 @@ export async function Main() {
     <>
       <HeroSection
         src={getVideoUrl(mainPage.video)}
-        poster={getImageUrl(mainPage.videoPoster.formats.small)}
+        poster={getImageUrl(mainPage.videoPoster.formats.small.url)}
       />
       <main className="pt-32 px-8 md:px-16 lg:px-24">
         <div className="max-w-6xl mx-auto space-y-32">
