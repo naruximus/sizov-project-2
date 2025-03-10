@@ -12,7 +12,7 @@ export async function Actor() {
         <VideoPlayer
           src={getVideoUrl(data.video)}
           type="video/mp4"
-          poster={getImageUrl(data.videoPoster.formats.small)}
+          poster={getImageUrl(data.videoPoster.formats.small.url)}
           showMuteButton
           showRestartButton
         />
