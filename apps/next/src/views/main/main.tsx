@@ -4,6 +4,7 @@ import { getImageUrl } from '@/shared/utils/get-image-url';
 import { getVideoUrl } from '@/shared/utils/get-video-url';
 
 import { HeroSection } from './ui/hero-section';
+import { NavigationBlocks } from './ui/navigation-blocks';
 import { VideosSection } from './ui/videos-section';
 
 export async function Main() {
@@ -91,6 +92,7 @@ export async function Main() {
           <VideosSection videos={integratedVideos} />
         </div>
       </main>
+      <NavigationBlocks />
     </>
   );
 }
