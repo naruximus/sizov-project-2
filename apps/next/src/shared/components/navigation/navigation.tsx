@@ -6,9 +6,11 @@ export function Navigation() {
       <div className="flex justify-between items-center max-w-6xl p-2  mx-auto">
         <NavLink href="/">sizov</NavLink>
         <div className="flex gap-8">
-          <NavLink href="/actor">actor</NavLink>
-          <NavLink href="/about">about</NavLink>
-          <NavLink href="/contact">contact</NavLink>
+          <NavLink href="/videoHorizontal">horizontal.mov</NavLink>
+          <NavLink href="/videoVertical">vertical.mp4</NavLink>
+          <NavLink href="/photos">photos.jpeg</NavLink>
+          <NavLink href="/actor">me.actor</NavLink>
+          <NavLink href="/contact">contacts.me</NavLink>
         </div>
       </div>
     </nav>
