@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { type MasonryProps, type ResponsiveMasonryProps } from 'react-responsive-masonry';
@@ -52,7 +52,7 @@ export const Masonry = ({ images, responsiveProps, masonryProps }: Props) => {
   return (
     <>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full max-h-[90vh] max-w-full object-contain">
           {/* Buttons Controls */}
           <div className="absolute w-full h-full flex justify-between items-center p-2">
             {!isFirstImage && (
@@ -77,14 +77,14 @@ export const Masonry = ({ images, responsiveProps, masonryProps }: Props) => {
           </div>
 
           {/* External Link */}
-          <a
+          {/* <a
             href={getImageUrl(selectedImage.url)}
             target="_blank"
             rel="noopener noreferrer"
             className="absolute top-2 right-2 text-white bg-black rounded-full p-2 bg-opacity-50"
           >
             <ExternalLink size={16} />
-          </a>
+          </a> */}
 
           <Image
             key={selectedImage.id}
@@ -92,7 +92,9 @@ export const Masonry = ({ images, responsiveProps, masonryProps }: Props) => {
             height={selectedImage.formats.large.height}
             alt={selectedImage.caption ?? selectedImage.name}
             src={getImageUrl(selectedImage.formats.large.url)}
-          />
+            className="max-h-[90vh] max-w-full object-contain mx-auto"
+            style={{ objectFit: 'contain' }}
+          ></Image>
         </div>
       </Modal>
 
