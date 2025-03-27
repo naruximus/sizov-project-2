@@ -45,7 +45,7 @@ export function NavigationBlocks() {
       text: 'Актер',
     },
     {
-      href: '/contacts',
+      href: '/contact',
       imageSrc: imgContacts,
       imageAlt: 'Контакты',
       animationData: contactBlack,
