@@ -12,7 +12,7 @@ interface Props {
   animationData: LottieOptions['animationData'];
 }
 
-export const TypeLayout = ({ imageSrc, imageAlt, animationData }: Props) => {
+export const Banner = ({ imageSrc, imageAlt, animationData }: Props) => {
   return (
     <div className="relative w-full h-[300px] md:h-[700px] overflow-hidden">
       <Image
