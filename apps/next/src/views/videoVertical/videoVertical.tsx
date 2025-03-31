@@ -5,7 +5,7 @@ import { Banner } from '@/shared/components/banner';
 export function VideoVertical() {
   return (
     <>
-      <Banner imageSrc={imgVertical} imageAlt="ssss" animationData={verticalWhite} />
+      <Banner imageSrc={imgVertical} imageAlt="VerticalVideosBanner" animationData={verticalWhite} />
       <div className="space-y-6">
         <section>
         </section>
