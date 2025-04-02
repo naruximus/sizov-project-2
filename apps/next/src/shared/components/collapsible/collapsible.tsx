@@ -22,7 +22,7 @@ export function Collapsible({ children, initialHeight = 400, maxHeight = 2000 }:
   }, [children, initialHeight]);
 
   return (
-    <div className="space-y-6 text-neutral-200">
+    <div className="space-y-6">
       <div
         ref={contentRef}
         style={{
@@ -37,7 +37,7 @@ export function Collapsible({ children, initialHeight = 400, maxHeight = 2000 }:
         <div className="flex justify-center">
           <button
             onClick={() => setIsExpanded((prevValue) => !prevValue)}
-            className="flex items-center gap-2 text-neutral-500 hover:text-neutral-300 transition-colors underline underline-offset-4 text-sm"
+            className="flex items-center gap-2 text-neutral-500 hover:text-neutral-300 transition-colors"
           >
             {isExpanded ? <ChevronUp size={30} /> : <ChevronDown size={30} />}
           </button>
