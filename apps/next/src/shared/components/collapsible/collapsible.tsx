@@ -22,7 +22,7 @@ export function Collapsible({ children, initialHeight = 400, maxHeight = 2000 }:
   }, [children, initialHeight]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 text-base leading-relaxed font-medium">
       <div
         ref={contentRef}
         style={{

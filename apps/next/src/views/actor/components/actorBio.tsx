@@ -4,29 +4,29 @@ export function ActorBio() {
   return (
     <section className="py-4 px-8 md:px-16 lg:px-24">
       <Collapsible>
-        <p className="text-base leading-relaxed font-medium">Привет!</p>
-        <p className="text-base leading-relaxed font-medium">
+        <p >Привет!</p>
+        <p >
           Меня зовут Сизов Дима, и мне 24 года
         </p>
-        <p className="text-base leading-relaxed font-medium">
+        <p >
           Я закончил РГИСИ (бывш. СПБГАТИ)
           <br />
           Мастерская И.И. Благодёра
           <br />
           Красный диплом артиста музыкального театра
         </p>
-        <p className="text-base leading-relaxed font-medium">
+        <p >
           С 2022 года служу в Александринском театре.
         </p>
-        <p className="text-base leading-relaxed font-medium">
+        <p >
           Также я вожу автомобиль, говорю на английском, чуть-чуть на испанском,
           <br />
           играю на контрабасе, гитаре, мелодике, немного на ударных, и немного на фортепиано.
         </p>
-        <p className="text-base leading-relaxed font-medium">
+        <p >
           Очень люблю сниматься и буду рад сотрудничеству.
         </p>
-        <p className="text-base leading-relaxed font-medium">Пишите!</p>
+        <p >Пишите!</p>
 
         <h3 className="text-lg font-medium mt-6">Список Ролей:</h3>
         <p className="text-base font-medium">Александринский театр, Санкт-Петербург</p>
