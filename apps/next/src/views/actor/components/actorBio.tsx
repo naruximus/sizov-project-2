@@ -3,34 +3,28 @@ import { Collapsible } from '@/shared/components/collapsible/collapsible';
 export function ActorBio() {
   return (
     <section className="py-4 px-8 md:px-16 lg:px-24">
-      <Collapsible>
-        <p >Привет!</p>
-        <p >
-          Меня зовут Сизов Дима, и мне 24 года
-        </p>
-        <p >
+      <Collapsible className="text-base leading-relaxed font-medium">
+        <p>Привет!</p>
+        <p>Меня зовут Сизов Дима, и мне 24 года</p>
+        <p>
           Я закончил РГИСИ (бывш. СПБГАТИ)
           <br />
           Мастерская И.И. Благодёра
           <br />
           Красный диплом артиста музыкального театра
         </p>
-        <p >
-          С 2022 года служу в Александринском театре.
-        </p>
-        <p >
+        <p>С 2022 года служу в Александринском театре.</p>
+        <p>
           Также я вожу автомобиль, говорю на английском, чуть-чуть на испанском,
           <br />
           играю на контрабасе, гитаре, мелодике, немного на ударных, и немного на фортепиано.
         </p>
-        <p >
-          Очень люблю сниматься и буду рад сотрудничеству.
-        </p>
-        <p >Пишите!</p>
+        <p>Очень люблю сниматься и буду рад сотрудничеству.</p>
+        <p>Пишите!</p>
 
-        <h3 className="text-lg font-medium mt-6">Список Ролей:</h3>
-        <p className="text-base font-medium">Александринский театр, Санкт-Петербург</p>
-        <ul className="space-y-3 text-base leading-relaxed font-medium list-disc pl-4">
+        <h3 className="text-lg mt-6">Список Ролей:</h3>
+        <p>Александринский театр, Санкт-Петербург</p>
+        <ul className="list-disc pl-4">
           <li>Бетранду - спектакль Сирано де Бержерак реж. Н. Рощин</li>
           <li>Любовник Наны гитарист Филлип - НАНА А. Жолдак</li>
           <li>Парень с Гостиного двора - Женитьба В. Фокин</li>
@@ -53,13 +47,13 @@ export function ActorBio() {
           <li>Музыкант - Пушкин. Стихи и мысли Ю. Васильев</li>
         </ul>
 
-        <p className="text-base font-medium mt-4">Театр Приют Комедианта, Санкт-Петербург</p>
-        <ul className="space-y-3 text-base leading-relaxed font-medium list-disc pl-4">
+        <p className="mt-4">Театр Приют Комедианта, Санкт-Петербург</p>
+        <ul className="list-disc pl-4">
           <li>Щелкунчик, Дроссельмейер младший - Щелкунчик В. Любский</li>
         </ul>
 
-        <h3 className="text-lg font-medium mt-6">Съемочный опыт:</h3>
-        <ul className="space-y-3 text-base leading-relaxed font-medium list-disc pl-4">
+        <h3 className="text-lg mt-6">Съемочный опыт:</h3>
+        <ul className="list-disc pl-4">
           <li>2024 Красный смех (к/м) Родион</li>
           <li>2022 Агнец (к/м) Саша</li>
           <li>2021 Свои 5 Глеб Никонов</li>

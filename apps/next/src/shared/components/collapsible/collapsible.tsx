@@ -7,9 +7,10 @@ interface Props {
   children: ReactNode;
   initialHeight?: number;
   maxHeight?: number;
+  className?: string;
 }
 
-export function Collapsible({ children, initialHeight = 400, maxHeight = 2000 }: Props) {
+export function Collapsible({ children, initialHeight = 440, maxHeight = 2000, className }: Props) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [needsToggle, setNeedsToggle] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -22,19 +23,20 @@ export function Collapsible({ children, initialHeight = 400, maxHeight = 2000 }:
   }, [children, initialHeight]);
 
   return (
-    <div className="space-y-6 text-base leading-relaxed font-medium">
+    <div className={className}>
       <div
         ref={contentRef}
         style={{
           maxHeight: isExpanded ? `${maxHeight}px` : `${initialHeight}px`,
-          transition: 'max-height 0.5s ease-in-out',
+          transition: 'max-height 0.5s ease-in-out, opacity 0.5s ease-in-out',
+          opacity: isExpanded ? 1 : 0.9,
           overflow: 'hidden',
         }}
       >
         {children}
       </div>
       {needsToggle && (
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-4">
           <button
             onClick={() => setIsExpanded((prevValue) => !prevValue)}
             className="flex items-center gap-2 text-neutral-500 hover:text-neutral-300 transition-colors"
