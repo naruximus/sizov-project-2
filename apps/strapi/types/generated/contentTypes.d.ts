@@ -364,6 +364,30 @@ export interface ApiActorPageActorPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
+  collectionName: 'contact_pages';
+  info: {
+    description: '';
+    displayName: 'ContactPage';
+    pluralName: 'contact-pages';
+    singularName: 'contact-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::contact-page.contact-page'> &
+      Schema.Attribute.Private;
+    photo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+  };
+}
+
 export interface ApiIntegratedVideoIntegratedVideo extends Struct.CollectionTypeSchema {
   collectionName: 'integrated_videos';
   info: {
@@ -847,6 +871,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::actor-page.actor-page': ApiActorPageActorPage;
+      'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::integrated-video.integrated-video': ApiIntegratedVideoIntegratedVideo;
       'api::main-page.main-page': ApiMainPageMainPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
