@@ -1,19 +1,21 @@
 import Image from 'next/image';
 
-import imgActor from '@/shared/assets/images/Actor.jpg';
+import { getContactPage } from '@/entities/contact-page';
+import { SocialLinks } from '@/shared/components';
+import { getImageUrl } from '@/shared/utils/get-image-url';
 
-import { SocialLinks } from './components/SocialLinks';
-
-export function Contact() {
+export async function Contact() {
+  const { data } = await getContactPage();
   return (
     <div className="flex flex-col md:flex-row pt-10">
       <div className="md:w-1/2 w-full aspect-[3/4] md:aspect-auto md:h-screen relative">
         <Image
-          src={imgActor}
+          src={getImageUrl(data.photo.formats.large.url)}
           alt="Дима"
           fill
           className="object-cover md:rounded-r-lg"
           sizes="(max-width: 768px) 100vw, 50vw"
+          priority
         />
       </div>
 

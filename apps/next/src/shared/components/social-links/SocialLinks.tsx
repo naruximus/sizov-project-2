@@ -12,19 +12,19 @@ const socialLinks: SocialLink[] = [
     icon: Mail,
     href: 'contact@sizovds.ru',
     label: 'Написать на email',
-    text: 'example@email.com',
+    text: 'contact@sizovds.ru',
   },
   {
     icon: MessageSquare,
-    href: 'https://t.me/Mstr_f_pppts',
+    href: 'https://t.me/mstr_f_pppts',
     label: 'Написать в Telegram',
-    text: 'Telegram: @yourusername',
+    text: 'Telegram: @mstr_f_pppts',
   },
   {
     icon: Instagram,
     href: 'https://instagram.com/mstr_f_pppts',
     label: 'Перейти в Instagram',
-    text: 'Instagram: @yourusername',
+    text: 'Instagram: @mstr_f_pppts',
   },
 ];
 
@@ -50,4 +50,4 @@ export const SocialLinks = () => {
       })}
     </ul>
   );
-};
+}; 
