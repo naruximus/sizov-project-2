@@ -10,21 +10,21 @@ interface SocialLink {
 const socialLinks: SocialLink[] = [
   {
     icon: Mail,
-    href: 'mailto:example@email.com',
+    href: 'contact@sizovds.ru',
     label: 'Написать на email',
-    text: 'example@email.com',
+    text: 'contact@sizovds.ru',
   },
   {
     icon: MessageSquare,
-    href: 'https://t.me/yourusername',
+    href: 'https://t.me/mstr_f_pppts',
     label: 'Написать в Telegram',
-    text: 'Telegram: @yourusername',
+    text: 'Telegram: @mstr_f_pppts',
   },
   {
     icon: Instagram,
-    href: 'https://instagram.com/yourusername',
+    href: 'https://instagram.com/mstr_f_pppts',
     label: 'Перейти в Instagram',
-    text: 'Instagram: @yourusername',
+    text: 'Instagram: @mstr_f_pppts',
   },
 ];
 

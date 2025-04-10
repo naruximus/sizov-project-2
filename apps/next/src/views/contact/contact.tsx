@@ -1,21 +1,29 @@
 import Image from 'next/image';
 
-import imgActor from '@/shared/assets/images/Actor.jpg';
+import { getContactPage } from '@/entities/contact-page';
+import { SocialLinks } from '@/shared/components';
+import { getImageUrl } from '@/shared/utils/get-image-url';
 
-import { SocialLinks } from './components/SocialLinks';
-
-export function Contact() {
+export async function Contact() {
+  const { data } = await getContactPage();
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row">
-      <div className="lg:w-1/2 w-full h-[50vh] lg:h-auto relative">
-        <Image src={imgActor} alt="Дима" fill className="object-cover" />
+    <div className="flex flex-col md:flex-row pt-10">
+      <div className="md:w-1/2 w-full aspect-[3/4] md:aspect-auto md:h-screen relative">
+        <Image
+          src={getImageUrl(data.photo.formats.large.url)}
+          alt="Дима"
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          priority
+        />
       </div>
 
-      <div className="flex items-center justify-center lg:pl-24">
-        <div className="space-y-10">
-          <h1 className="text-4xl font-medium">Связаться со мной</h1>
+      <div className="flex items-center justify-center md:pl-24 px-6 md:px-0 py-8 md:py-0">
+        <div className="space-y-6 md:space-y-10 max-w-md w-full md:pr-24">
+          <h1 className="text-3xl md:text-4xl font-medium text-left">Связаться со мной</h1>
           <div className="space-y-4">
-            <p>
+            <p className="text-lg md:text-lg leading-relaxed text-left">
               Если у вас есть вопросы, предложения или вы хотите обсудить сотрудничество, пишите
               мне!
             </p>
