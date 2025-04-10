@@ -13,7 +13,7 @@ export async function Contact() {
           src={getImageUrl(data.photo.formats.large.url)}
           alt="Дима"
           fill
-          className="object-cover md:rounded-r-lg"
+          className="object-cover"
           sizes="(max-width: 768px) 100vw, 50vw"
           priority
         />
