@@ -8,7 +8,7 @@ export async function Contact() {
   const { data } = await getContactPage();
   return (
     <div className="flex flex-col md:flex-row pt-10">
-      <div className="md:w-1/2 w-full aspect-[3/4] md:aspect-auto md:h-screen relative">
+      <div className="md:w-1/2 w-full aspect-[3/4] h-[70vh] md:aspect-auto md:h-screen relative">
         <Image
           src={getImageUrl(data.photo.formats.large.url)}
           alt="Дима"
@@ -23,11 +23,11 @@ export async function Contact() {
         <div className="space-y-6 md:space-y-10 max-w-md w-full md:pr-24">
           <h1 className="text-3xl md:text-4xl font-medium text-left">Связаться со мной</h1>
           <div className="space-y-4">
-            <p className="text-lg md:text-lg leading-relaxed text-left">
+            <p className="text-lg md:text-lg leading-relaxed  text-left">
               Если у вас есть вопросы, предложения или вы хотите обсудить сотрудничество, пишите
               мне!
             </p>
-            <SocialLinks />
+            <SocialLinks className="flex-col space-y-2" showText />
           </div>
         </div>
       </div>
