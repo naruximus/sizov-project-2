@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { type RefObject, useRef, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useOnClickOutside } from 'usehooks-ts';
 
 import { NavLink } from '../nav-link';
 
@@ -11,21 +12,9 @@ export function Navigation() {
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen]);
+  useOnClickOutside(menuRef as RefObject<HTMLElement>, () => {
+    setIsOpen(false);
+  });
 
   return (
     <>
@@ -38,7 +27,7 @@ export function Navigation() {
       <nav className="fixed top-0 left-0 w-full z-20 bg-neutral-900 mt-0">
         <div className="flex justify-between items-center max-w-6xl p-2 mx-auto">
           <NavLink href="/">sizov</NavLink>
-        
+
           <button
             onClick={toggleMenu}
             className="md:hidden text-neutral-200"
@@ -61,7 +50,11 @@ export function Navigation() {
               isOpen ? 'max-h-96' : 'max-h-0 overflow-hidden'
             }`}
           >
-            <NavLink href="/videoHorizontal" onClick={toggleMenu} className="block py-2 text-center">
+            <NavLink
+              href="/videoHorizontal"
+              onClick={toggleMenu}
+              className="block py-2 text-center"
+            >
               horizontal.mov
             </NavLink>
             <NavLink href="/videoVertical" onClick={toggleMenu} className="block py-2 text-center">
