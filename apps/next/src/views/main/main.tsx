@@ -17,79 +17,33 @@ export async function Main() {
         src={getVideoUrl(mainPage.video)}
         poster={getImageUrl(mainPage.videoPoster.formats.small.url)}
       />
-      <main className="pt-32 px-8 md:px-16 lg:px-24">
-        <div className="max-w-6xl mx-auto space-y-32">
-          <h1 className="text-4xl font-bold">{mainPage.title}</h1>
-          {/* Journey Section */}
-          <section className="max-w-2xl space-y-8">
-            <p className="text-lg">
-              10 years ago I quit my job and started exploring the world with:
-            </p>
+      <main className="flex flex-col">
+        <div className="space-y-8 bg-neutral-900 p-8 md:p-16 text-neutural">
+          <div className="max-w-2xl mx-auto space-y-8">
+            <h1 className="text-4xl font-bold">{mainPage.title}</h1>
+            <section className="space-y-8">
+              <p className="text-lg">
+                С 2007 года держу в руках камеру с 2018 года занимаюсь фото и видео съемкой
+                профессионально.
+              </p>
 
-            <ul className="space-y-2 text-neutral-300">
-              <li className="flex items-center">
-                <span className="mr-2">-</span>
-                <span>$100</span>
-              </li>
-              <li className="flex items-center">
-                <span className="mr-2">-</span>
-                <span>the cheapest camera</span>
-              </li>
-              <li className="flex items-center">
-                <span className="mr-2">-</span>
-                <span>a tripod</span>
-              </li>
-              <li className="flex items-center">
-                <span className="mr-2">-</span>
-                <span>and curiosity</span>
-              </li>
-            </ul>
-          </section>
+              <p className="text-lg">
+                За это время успел создать бессчетное количество контента для театров, выставочных
+                пространств, баров, артистов, музыкантов, режиссеров, (среди которых -
+                Александринский театр, ЦВЗ Манеж, группа Zoloto, телеканал 2Х2 И так далее) ну и для
+                друзей, конечно же.
+              </p>
 
-          {/* Timeline Section */}
-          <section className="max-w-4xl space-y-16">
-            <h2 className="text-lg">filming for:</h2>
+              <p className="text-lg">С некоторыми из моих работ, вы можете ознакомиться здесь!</p>
 
-            <div className="space-y-16">
-              <div className="group">
-                <div className="text-neutral-500 mb-4">2023</div>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-4">
-                    <span className="text-neutral-500">-</span>
-                    <a href="#" className="hover:text-neutral-400 transition-colors">
-                      Project Name One
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <span className="text-neutral-500">-</span>
-                    <a href="#" className="hover:text-neutral-400 transition-colors">
-                      Project Name Two
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="group">
-                <div className="text-neutral-500 mb-4">2022</div>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-4">
-                    <span className="text-neutral-500">-</span>
-                    <a href="#" className="hover:text-neutral-400 transition-colors">
-                      Another Project
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <span className="text-neutral-500">-</span>
-                    <a href="#" className="hover:text-neutral-400 transition-colors">
-                      Cool Video Project
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <VideosSection videos={integratedVideos} />
+              <p className="text-lg">Приятного просмотра!</p>
+            </section>
+          </div>
+        </div>
+        <div className="px-8 md:px-16 lg:px-24 py-32">
+          <div className="max-w-6xl mx-auto">
+            <VideosSection videos={integratedVideos} />
+          </div>
         </div>
       </main>
       <NavigationBlocks />
