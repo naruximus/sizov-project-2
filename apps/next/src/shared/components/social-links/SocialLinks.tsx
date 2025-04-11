@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { Instagram, LucideIcon, Mail, MessageSquare } from 'lucide-react';
 
 interface SocialLink {
@@ -5,6 +6,11 @@ interface SocialLink {
   href: string;
   label: string;
   text: string;
+}
+
+interface SocialLinksProps {
+  className?: string;
+  showText?: boolean;
 }
 
 const socialLinks: SocialLink[] = [
@@ -28,14 +34,13 @@ const socialLinks: SocialLink[] = [
   },
 ];
 
-export const SocialLinks = () => {
+export const SocialLinks = ({ className = '', showText = false }: SocialLinksProps) => {
   return (
-    <ul className="space-y-2">
+    <ul className={clsx('flex', className)}>
       {socialLinks.map((link, index) => {
         const Icon = link.icon;
         return (
           <li key={index} className="flex items-center gap-2">
-            <Icon size={20} className="text-neutral-500" />
             <a
               href={link.href}
               target="_blank"
@@ -43,11 +48,22 @@ export const SocialLinks = () => {
               className="text-neutral-500 hover:text-neutral-300 transition-colors"
               aria-label={link.label}
             >
-              {link.text}
+               <Icon size={25} className="text-neutral-500" />
             </a>
+            {showText && (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                 className="text-neutral-500 hover:text-neutral-300 transition-colors"
+                aria-label={link.label}
+              >
+                {link.text}
+              </a>
+            )}
           </li>
         );
       })}
     </ul>
   );
-}; 
+};
