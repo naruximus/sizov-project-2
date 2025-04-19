@@ -388,6 +388,34 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiHorizontalVideoHorizontalVideo extends Struct.CollectionTypeSchema {
+  collectionName: 'horizontal_videos';
+  info: {
+    displayName: 'HorizontalVideo';
+    pluralName: 'horizontal-videos';
+    singularName: 'horizontal-video';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::horizontal-video.horizontal-video'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    preview: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    video: Schema.Attribute.Media<'videos'> & Schema.Attribute.Required;
+  };
+}
+
 export interface ApiIntegratedVideoIntegratedVideo extends Struct.CollectionTypeSchema {
   collectionName: 'integrated_videos';
   info: {
@@ -440,6 +468,31 @@ export interface ApiMainPageMainPage extends Struct.SingleTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     video: Schema.Attribute.Media<'files' | 'videos'> & Schema.Attribute.Required;
     videoPoster: Schema.Attribute.Media<'files' | 'images'> & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiVerticalVideoVerticalVideo extends Struct.CollectionTypeSchema {
+  collectionName: 'vertical_videos';
+  info: {
+    displayName: 'VerticalVideo';
+    pluralName: 'vertical-videos';
+    singularName: 'vertical-video';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::vertical-video.vertical-video'> &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    preview: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    video: Schema.Attribute.Media<'videos'> & Schema.Attribute.Required;
   };
 }
 
@@ -872,8 +925,10 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::actor-page.actor-page': ApiActorPageActorPage;
       'api::contact-page.contact-page': ApiContactPageContactPage;
+      'api::horizontal-video.horizontal-video': ApiHorizontalVideoHorizontalVideo;
       'api::integrated-video.integrated-video': ApiIntegratedVideoIntegratedVideo;
       'api::main-page.main-page': ApiMainPageMainPage;
+      'api::vertical-video.vertical-video': ApiVerticalVideoVerticalVideo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
