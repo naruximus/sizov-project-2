@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vertical_videos",
+  "info": {
+    "singularName": "vertical-video",
+    "pluralName": "vertical-videos",
+    "displayName": "VerticalVideo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "preview": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "video": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

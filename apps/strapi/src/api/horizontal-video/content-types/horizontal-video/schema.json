@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "horizontal_videos",
+  "info": {
+    "singularName": "horizontal-video",
+    "pluralName": "horizontal-videos",
+    "displayName": "HorizontalVideo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "preview": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "video": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
