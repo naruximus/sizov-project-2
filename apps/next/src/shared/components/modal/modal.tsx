@@ -55,11 +55,13 @@ export const Modal = ({ children, isOpen, onClose }: Props) => {
       )}
     >
       <div className="flex relative w-full h-full justify-center items-center p-4">
-        <button type="button" className="absolute top-4 right-4 text-white" onClick={onClose}>
+        <button type="button" className="absolute top-4 right-4 text-white z-10" onClick={onClose}>
           <X size={32} />
           <span className="sr-only">Close modal</span>
         </button>
-        <div ref={contentRef}>{children}</div>
+        <div ref={contentRef} className="w-full">
+          {children}
+        </div>
       </div>
     </div>,
     container,
