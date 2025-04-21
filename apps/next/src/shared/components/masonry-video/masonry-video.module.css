@@ -1,0 +1,5 @@
+.modal video,
+.modal img {
+  max-height: 90vh;
+  height: 100%;
+}
