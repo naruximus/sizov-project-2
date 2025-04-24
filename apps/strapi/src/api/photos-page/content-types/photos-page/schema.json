@@ -1,26 +1,24 @@
 {
   "kind": "singleType",
-  "collectionName": "photos",
+  "collectionName": "photos_pages",
   "info": {
-    "singularName": "photo",
-    "pluralName": "photos",
-    "displayName": "PhotosPage",
-    "description": ""
+    "singularName": "photos-page",
+    "pluralName": "photos-pages",
+    "displayName": "PhotosPage"
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
     "portfolio": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
