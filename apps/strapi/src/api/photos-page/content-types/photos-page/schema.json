@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
-  "collectionName": "photos",
+  "kind": "singleType",
+  "collectionName": "photos_pages",
   "info": {
-    "singularName": "photo",
-    "pluralName": "photos",
-    "displayName": "Photo"
+    "singularName": "photos-page",
+    "pluralName": "photos-pages",
+    "displayName": "PhotosPage"
   },
   "options": {
     "draftAndPublish": true
