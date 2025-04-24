@@ -474,7 +474,8 @@ export interface ApiMainPageMainPage extends Struct.SingleTypeSchema {
 export interface ApiPhotoPhoto extends Struct.SingleTypeSchema {
   collectionName: 'photos';
   info: {
-    displayName: 'Photo';
+    description: '';
+    displayName: 'PhotosPage';
     pluralName: 'photos';
     singularName: 'photo';
   };

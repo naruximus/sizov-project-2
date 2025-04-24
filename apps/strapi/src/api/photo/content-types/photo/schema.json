@@ -4,21 +4,23 @@
   "info": {
     "singularName": "photo",
     "pluralName": "photos",
-    "displayName": "Photo"
+    "displayName": "PhotosPage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
     "portfolio": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     }
   }
 }
