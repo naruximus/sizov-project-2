@@ -1,11 +1,11 @@
-import { getPhotos } from '@/entities/photos/photos.api';
+import { getPhotosPage } from '@/entities/photos-page/photos-page.api';
 import imgPhotos from '@/shared/assets/images/Photos.jpg';
 import photosWhite from '@/shared/assets/lotties/photos_white.json';
 import { Masonry } from '@/shared/components';
 import { Banner } from '@/shared/components/banner';
 
 export async function Photos() {
-  const { data } = await getPhotos();
+  const { data } = await getPhotosPage();
   return (
     <>
       <Banner imageSrc={imgPhotos} imageAlt="PhotosBanner" animationData={photosWhite} />
