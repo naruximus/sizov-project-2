@@ -471,6 +471,29 @@ export interface ApiMainPageMainPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPhotoPhoto extends Struct.CollectionTypeSchema {
+  collectionName: 'photos';
+  info: {
+    displayName: 'Photo';
+    pluralName: 'photos';
+    singularName: 'photo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::photo.photo'> &
+      Schema.Attribute.Private;
+    portfolio: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+  };
+}
+
 export interface ApiVerticalVideoVerticalVideo extends Struct.CollectionTypeSchema {
   collectionName: 'vertical_videos';
   info: {
@@ -928,6 +951,7 @@ declare module '@strapi/strapi' {
       'api::horizontal-video.horizontal-video': ApiHorizontalVideoHorizontalVideo;
       'api::integrated-video.integrated-video': ApiIntegratedVideoIntegratedVideo;
       'api::main-page.main-page': ApiMainPageMainPage;
+      'api::photo.photo': ApiPhotoPhoto;
       'api::vertical-video.vertical-video': ApiVerticalVideoVerticalVideo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
