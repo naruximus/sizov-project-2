@@ -22,11 +22,7 @@ export async function Photos() {
                 1440: 7,
               },
               gutterBreakPoints: {
-                640: '2',
-                768: '3',
-                1024: '4',
-                1280: '5',
-                1440: '7',
+                640: '1px',
               },
             }}
           />
