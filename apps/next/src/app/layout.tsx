@@ -10,7 +10,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <div className="flex flex-col min-h-screen bg-[#1C1C1C] text-white font-mono">
+        <div className="flex flex-col min-h-screen bg-neutral-900 text-white font-mono">
           <Navigation />
 
           {children}

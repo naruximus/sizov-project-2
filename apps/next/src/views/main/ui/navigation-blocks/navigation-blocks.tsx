@@ -54,7 +54,7 @@ export function NavigationBlocks() {
   ];
 
   return (
-    <section className="space-y-0 mt-20">
+    <section className="space-y-0">
       {links.map((link) => (
         <PhotoLink
           key={link.href}
