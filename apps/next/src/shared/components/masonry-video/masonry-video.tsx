@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Video from 'next-video';
-import { type MasonryProps, type ResponsiveMasonryProps } from 'react-responsive-masonry';
+import { type ResponsiveMasonryProps } from 'react-responsive-masonry';
 import { useWindowSize } from 'usehooks-ts';
 
 import { type THorizontalVideo } from '@/entities/horizontal-videos';
@@ -31,12 +31,9 @@ const ReactMasonry = dynamic(() => import('react-responsive-masonry').then((mod)
 type Props = {
   videos: THorizontalVideo[];
   responsiveProps: Omit<ResponsiveMasonryProps, 'children'>;
-  masonryProps: Omit<MasonryProps, 'children'>;
 };
 
-export const MasonryVideos = ({ videos, masonryProps, responsiveProps }: Props) => {
-  const { gutter = '12px', ...restMasonryProps } = masonryProps;
-
+export const MasonryVideos = ({ videos, responsiveProps }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<THorizontalVideo>(videos[0]);
 
@@ -95,7 +92,7 @@ export const MasonryVideos = ({ videos, masonryProps, responsiveProps }: Props) 
           )}
 
           <Video
-            className="justify-center" 
+            className="justify-center"
             key={selectedVideo.id}
             src={getVideoUrl(selectedVideo.video)}
             type="video/mp4"
@@ -110,7 +107,7 @@ export const MasonryVideos = ({ videos, masonryProps, responsiveProps }: Props) 
       </Modal>
 
       <ResponsiveMasonry {...responsiveProps}>
-        <ReactMasonry gutter={gutter} {...restMasonryProps}>
+        <ReactMasonry>
           {videos.map((v) => (
             <div
               key={v.id}

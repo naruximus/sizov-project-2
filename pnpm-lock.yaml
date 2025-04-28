@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@types/react-responsive-masonry@2.6.0':
+    hash: b23yilagnh67pmpu2mqmzmdctm
+    path: patches/@types__react-responsive-masonry@2.6.0.patch
+
 importers:
 
   .: {}
@@ -61,7 +66,7 @@ importers:
         version: 19.0.4(@types/react@19.0.10)
       '@types/react-responsive-masonry':
         specifier: ^2.6.0
-        version: 2.6.0
+        version: 2.6.0(patch_hash=b23yilagnh67pmpu2mqmzmdctm)
       eslint:
         specifier: ^9
         version: 9.21.0(jiti@1.21.7)
@@ -6416,8 +6421,8 @@ packages:
       '@types/react':
         optional: true
 
-  react-responsive-masonry@2.7.1:
-    resolution: {integrity: sha512-Q+u+nOH87PzjqGFd2PgTcmLpHPZnCmUPREHYoNBc8dwJv6fi51p9U6hqwG8g/T8MN86HrFjrU+uQU6yvETU7cA==}
+  react-responsive-masonry@2.7.0:
+    resolution: {integrity: sha512-tlxJ2enq7kLYdF5NnKrPfdY/5VM3dcTRRkj2QdAoeSodpfrJNVMuqGkkQ/Aqn1jg+hXaS2SRARdjczK+KCUrQg==}
 
   react-router-dom@6.29.0:
     resolution: {integrity: sha512-pkEbJPATRJ2iotK+wUwHfy0xs2T59YPEN8BQxVCPeBZvK7kfPESRc/nyxzdcxR17hXgUPYx2whMwl+eo9cUdnQ==}
@@ -11417,7 +11422,7 @@ snapshots:
     dependencies:
       '@types/react': 19.0.10
 
-  '@types/react-responsive-masonry@2.6.0':
+  '@types/react-responsive-masonry@2.6.0(patch_hash=b23yilagnh67pmpu2mqmzmdctm)':
     dependencies:
       '@types/react': 19.0.10
 
@@ -15688,7 +15693,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.18
 
-  react-responsive-masonry@2.7.1: {}
+  react-responsive-masonry@2.7.0: {}
 
   react-router-dom@6.29.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:

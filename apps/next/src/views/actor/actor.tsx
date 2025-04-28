@@ -31,8 +31,14 @@ export async function Actor() {
               1280: 5,
               1440: 7,
             },
+            gutterBreakPoints: {
+              640: '2',
+              768: '3',
+              1024: '4',
+              1280: '5',
+              1440: '7',
+            },
           }}
-          masonryProps={{ gutter: '12px' }}
         />
       </section>
     </main>

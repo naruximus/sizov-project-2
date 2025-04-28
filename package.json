@@ -13,5 +13,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "pnpm": {
+    "patchedDependencies": {
+      "@types/react-responsive-masonry@2.6.0": "patches/@types__react-responsive-masonry@2.6.0.patch"
+    }
+  }
 }
