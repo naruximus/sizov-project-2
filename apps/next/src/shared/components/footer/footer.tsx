@@ -2,7 +2,7 @@ import { SocialLinks } from '../social-links';
 
 export function Footer() {
   return (
-    <footer className="bg-neutral-900 text-neutral-400 py-5">
+    <footer className="bg-[#1C1C1C] text-neutral-400 py-5">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:justify-between px-3 space-y-4 md:space-y-0">
           <div className="flex justify-center md:items-center">
