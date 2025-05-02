@@ -24,7 +24,7 @@ export function VideosSection({ videos }: Props) {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
-        <div className="flex flex-col overflow-scroll w-full lg:w-[360px]">
+        <div className="flex flex-col overflow-x-hidden overflow-y-scroll w-full lg:w-[360px] scrollbar-thin scrollbar-thumb-stone-700 scrollbar-track-stone-900">
           <div className="p-4 border-b border-stone-600">
             <h3 className="text-lg">My projects</h3>
             <p className="flex items-center gap-2 text-sm text-gray-500">

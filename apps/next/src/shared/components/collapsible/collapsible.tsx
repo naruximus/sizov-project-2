@@ -10,7 +10,7 @@ interface Props {
   className?: string;
 }
 
-export function Collapsible({ children, initialHeight = 440, maxHeight = 2000, className }: Props) {
+export function Collapsible({ children, initialHeight = 440, maxHeight = 4000, className }: Props) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [needsToggle, setNeedsToggle] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -23,7 +23,7 @@ export function Collapsible({ children, initialHeight = 440, maxHeight = 2000, c
   }, [children, initialHeight]);
 
   return (
-    <div className={className}>
+    <div className={`relative ${className}`}>
       <div
         ref={contentRef}
         style={{
@@ -36,12 +36,16 @@ export function Collapsible({ children, initialHeight = 440, maxHeight = 2000, c
         {children}
       </div>
       {needsToggle && (
-        <div className="flex justify-center mt-4">
+        <div className="absolute bottom-0 left-0 right-0 flex justify-center">
+          {!isExpanded && (
+            <div className="w-full h-20 bg-gradient-to-t from-white to-transparent dark:from-neutral-900 dark:to-transparent" />
+          )}
           <button
             onClick={() => setIsExpanded((prevValue) => !prevValue)}
-            className="flex items-center gap-2 text-neutral-500 hover:text-neutral-300 transition-colors"
+            className="absolute top-0 flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-neutral-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 self-center"
+            aria-label={isExpanded ? 'Свернуть' : 'Развернуть'}
           >
-            {isExpanded ? <ChevronUp size={30} /> : <ChevronDown size={30} />}
+            {isExpanded ? <ChevronUp size={35} /> : <ChevronDown size={35} />}
           </button>
         </div>
       )}
