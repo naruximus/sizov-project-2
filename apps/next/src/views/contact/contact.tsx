@@ -7,17 +7,24 @@ import { getImageUrl } from '@/shared/utils/get-image-url';
 export async function Contact() {
   const { data } = await getContactPage();
   return (
-    <div className="flex flex-col md:flex-row">
-      <div className="md:w-1/2 w-full aspect-[3/4] h-[70vh] md:aspect-auto md:h-screen relative">
+    <div className="flex pt-10 sm:flex-1 sm:flex-row flex-col ">
+      <div className={`hidden relative sm:flex-1 sm:max-w-[600px] sm:h-auto  sm:block`}>
         <Image
           src={getImageUrl(data.photo.formats.large.url)}
           alt="Дима"
           fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 50vw"
+          className="sm:object-cover object-contain"
           priority
         />
       </div>
+      <Image
+        src={getImageUrl(data.photo.formats.large.url)}
+        alt="Дима"
+        width={data.photo.formats.large.width}
+        height={data.photo.formats.large.height}
+        priority
+        className="sm:hidden"
+      />
 
       <div className="flex items-center justify-center md:pl-24 px-6 md:px-0 py-8 md:py-0">
         <div className="space-y-6 md:space-y-10 max-w-md w-full md:pr-24">
