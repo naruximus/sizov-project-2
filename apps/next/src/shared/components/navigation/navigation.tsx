@@ -24,7 +24,9 @@ export function Navigation() {
         } z-10 md:hidden`}
       />
 
-      <nav className={`fixed top-0 left-0 w-full z-20 bg-[#1C1C1C] mt-0 ${isOpen ? 'opacity-100' : 'opacity-80'}`}>
+      <nav
+        className={`fixed top-0 left-0 w-full z-20 bg-dark mt-0 ${isOpen ? 'opacity-100' : 'opacity-80'}`}
+      >
         <div className="flex justify-between items-center max-w-6xl p-2 mx-auto">
           <NavLink href="/">sizov</NavLink>
 
