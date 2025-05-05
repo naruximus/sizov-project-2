@@ -14,7 +14,7 @@ interface Props {
 
 export const Banner = ({ imageSrc, imageAlt, animationData }: Props) => {
   return (
-    <div className="relative w-full h-[300px] md:h-[700px] overflow-hidden">
+    <div className="relative w-full h-[300px] md:h-[700px] overflow-hidden mb-6">
       <Image src={imageSrc} alt={imageAlt} fill className="object-cover" />
       <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
         <div className="relative max-w-[1000px] ">

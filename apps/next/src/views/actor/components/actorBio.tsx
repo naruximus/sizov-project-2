@@ -2,7 +2,7 @@ import { Collapsible } from '@/shared/components/collapsible/collapsible';
 
 export function ActorBio() {
   return (
-    <section className="py-4 px-8 md:px-16 lg:px-24">
+    <section className="py-10 px-8 md:px-16 lg:px-24">
       <Collapsible className="text-base leading-relaxed font-medium">
         <p>Привет!</p>
         <p>Меня зовут Сизов Дима, и мне 24 года</p>

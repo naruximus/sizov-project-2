@@ -7,7 +7,7 @@ interface Props {
 
 export function HeroSection({ src, poster }: Props) {
   return (
-    <section className="pt-10">
+    <section>
       <VideoPlayer src={src} type="video/mp4" poster={poster} showMuteButton />
     </section>
   );

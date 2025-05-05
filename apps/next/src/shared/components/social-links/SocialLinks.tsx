@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Instagram, LucideIcon, Mail, MessageSquare } from 'lucide-react';
+import { Instagram, LucideIcon, Mail, Send } from 'lucide-react';
 
 interface SocialLink {
   icon: LucideIcon;
@@ -21,7 +21,7 @@ const socialLinks: SocialLink[] = [
     text: 'contact@sizovds.ru',
   },
   {
-    icon: MessageSquare,
+    icon: Send,
     href: 'https://t.me/mstr_f_pppts',
     label: 'Написать в Telegram',
     text: 'Telegram: @mstr_f_pppts',
@@ -29,8 +29,8 @@ const socialLinks: SocialLink[] = [
   {
     icon: Instagram,
     href: 'https://instagram.com/mstr_f_pppts',
-    label: 'Перейти в Instagram',
-    text: 'Instagram: @mstr_f_pppts',
+    label: 'Перейти в Ig',
+    text: 'Ig: @mstr_f_pppts',
   },
 ];
 

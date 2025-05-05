@@ -10,7 +10,7 @@ export async function Actor() {
 
   return (
     <main>
-      <section className="pt-10">
+      <section>
         <VideoPlayer
           src={getVideoUrl(data.video)}
           type="video/mp4"

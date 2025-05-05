@@ -7,7 +7,7 @@ import { getImageUrl } from '@/shared/utils/get-image-url';
 export async function Contact() {
   const { data } = await getContactPage();
   return (
-    <div className="flex flex-col md:flex-row pt-10">
+    <div className="flex flex-col md:flex-row">
       <div className="md:w-1/2 w-full aspect-[3/4] h-[70vh] md:aspect-auto md:h-screen relative">
         <Image
           src={getImageUrl(data.photo.formats.large.url)}
@@ -34,3 +34,4 @@ export async function Contact() {
     </div>
   );
 }
+
