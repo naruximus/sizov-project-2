@@ -1,0 +1,14 @@
+diff --git a/index.d.ts b/index.d.ts
+index 4a9bab25379bf194add28a5397e614bd0066bd0e..24d49a7b52ab0078e77b36a9ec994ca81e48d498 100644
+--- a/index.d.ts
++++ b/index.d.ts
+@@ -52,6 +52,9 @@ export interface ResponsiveMasonryProps {
+     columnsCountBreakPoints?: {
+         [key: number]: number;
+     };
++    gutterBreakPoints?: {
++        [key: number]: string;
++    };
+     className?: string;
+     style?: CSSProperties;
+ }

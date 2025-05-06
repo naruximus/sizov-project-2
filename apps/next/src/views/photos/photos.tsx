@@ -21,8 +21,10 @@ export async function Photos() {
                 1280: 5,
                 1440: 7,
               },
+              gutterBreakPoints: {
+                640: '1px',
+              },
             }}
-            masonryProps={{ gutter: '12px' }}
           />
         </section>
       </div>

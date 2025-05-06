@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { type MasonryProps, type ResponsiveMasonryProps } from 'react-responsive-masonry';
+import { type ResponsiveMasonryProps } from 'react-responsive-masonry';
 
 import type { TStrapiMedia } from '@/shared/model/strapi-media';
 import { getImageUrl } from '@/shared/utils/get-image-url';
@@ -25,12 +25,10 @@ const ReactMasonry = dynamic(() => import('react-responsive-masonry').then((mod)
 
 type Props = {
   responsiveProps: Omit<ResponsiveMasonryProps, 'children'>;
-  masonryProps: Omit<MasonryProps, 'children'>;
   images: TStrapiMedia[];
 };
 
-export const Masonry = ({ images, responsiveProps, masonryProps }: Props) => {
-  const { gutter = '12px', ...restMasonryProps } = masonryProps;
+export const Masonry = ({ images, responsiveProps }: Props) => {
   const [selectedImage, setSelectedImage] = useState<TStrapiMedia>(images[0]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -53,7 +51,6 @@ export const Masonry = ({ images, responsiveProps, masonryProps }: Props) => {
     <>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <div className="relative w-full h-full max-h-[90vh] max-w-full object-contain">
-          {/* Buttons Controls */}
           <div className="absolute w-full h-full flex justify-between items-center p-2">
             {!isFirstImage && (
               <button
@@ -75,17 +72,6 @@ export const Masonry = ({ images, responsiveProps, masonryProps }: Props) => {
               </button>
             )}
           </div>
-
-          {/* External Link */}
-          {/* <a
-            href={getImageUrl(selectedImage.url)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute top-2 right-2 text-white bg-black rounded-full p-2 bg-opacity-50"
-          >
-            <ExternalLink size={16} />
-          </a> */}
-
           <Image
             key={selectedImage.id}
             width={selectedImage.formats.large.width}
@@ -98,8 +84,10 @@ export const Masonry = ({ images, responsiveProps, masonryProps }: Props) => {
         </div>
       </Modal>
 
-      <ResponsiveMasonry {...responsiveProps}>
-        <ReactMasonry gutter={gutter} {...restMasonryProps}>
+      <ResponsiveMasonry
+        {...responsiveProps}
+      >
+        <ReactMasonry>
           {images.map((image) => {
             const format = image.formats.small;
             return (

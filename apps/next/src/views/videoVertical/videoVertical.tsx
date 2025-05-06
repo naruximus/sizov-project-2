@@ -24,8 +24,10 @@ export async function VideoVertical() {
                 768: 3,
                 1024: 4,
               },
+              gutterBreakPoints: {
+                640: '8px',
+              },
             }}
-            masonryProps={{ gutter: '12px' }}
           />
         </section>
       </div>
