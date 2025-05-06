@@ -419,6 +419,7 @@ export interface ApiHorizontalVideoHorizontalVideo extends Struct.CollectionType
 export interface ApiIntegratedVideoIntegratedVideo extends Struct.CollectionTypeSchema {
   collectionName: 'integrated_videos';
   info: {
+    description: '';
     displayName: 'IntegratedVideo';
     pluralName: 'integrated-videos';
     singularName: 'integrated-video';
@@ -437,9 +438,10 @@ export interface ApiIntegratedVideoIntegratedVideo extends Struct.CollectionType
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     source: Schema.Attribute.String & Schema.Attribute.Required;
-    timing: Schema.Attribute.String;
+    timing: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
   };
