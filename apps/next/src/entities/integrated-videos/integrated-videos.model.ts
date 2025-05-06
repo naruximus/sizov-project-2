@@ -6,6 +6,7 @@ export const IntegratedVideo = z.object({
   source: z.string(),
   description: z.string().optional(),
   timing: z.string().optional(),
+  order: z.number().optional(),
   documentId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
