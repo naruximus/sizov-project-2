@@ -4,7 +4,8 @@
   "info": {
     "singularName": "integrated-video",
     "pluralName": "integrated-videos",
-    "displayName": "IntegratedVideo"
+    "displayName": "IntegratedVideo",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,7 +23,11 @@
       "type": "text"
     },
     "timing": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "order": {
+      "type": "integer"
     }
   }
 }
