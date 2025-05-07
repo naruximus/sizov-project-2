@@ -44,7 +44,7 @@ export function VideosSection({ videos }: Props) {
               <div className="flex items-baseline w-full  gap-2 text-sm">
                 <span>{++index}</span>
                 <span className="flex-1 text-sm">{video.name}</span>
-                <span className="text-sm">{video?.timing}</span>
+                <span className="text-sm">{video.timing}</span>
               </div>
             </div>
           ))}

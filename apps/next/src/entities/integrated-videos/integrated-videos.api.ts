@@ -7,6 +7,6 @@ import { IntegratedVideo } from './integrated-videos.model';
 
 export const getIntegratedVideos = createApi({
   method: 'GET',
-  endpoint: '/integrated-videos?populate=*',
+  endpoint: '/integrated-videos?populate=*&sort=order:asc',
   responseSchema: StrapiResponse(z.array(IntegratedVideo)),
 });
