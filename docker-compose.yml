@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  next:
+    build:
+      context: .
+      dockerfile: ./apps/next/Dockerfile
+    command: bash -c "pnpm run build:next && pnpm run start:next"
+    restart: always
+    ports:
+      - '3000:3000'
+    depends_on:
+      - strapi
+    volumes:
+      - ./apps/next:/apps/next
+      - /apps/next/node_modules
+      - /apps/next/.next
+
+  strapi:
+    build:
+      context: .
+      dockerfile: ./apps/strapi/Dockerfile
+    command: bash -c "pnpm run build:strapi && NODE_ENV=production pnpm run start:strapi"
+    restart: always
+    network_mode: host
+    volumes:
+      - ./apps/strapi:/apps/strapi
+      - /apps/strapi/node_modules
+      - ./apps/strapi/.tmp:/apps/strapi/.tmp
