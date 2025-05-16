@@ -4,5 +4,4 @@ RUN npm install -g pnpm@9.2.0
 RUN mkdir /sizov
 WORKDIR /sizov
 COPY ../.. /sizov
-RUN ls
 RUN pnpm i
