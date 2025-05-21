@@ -41,4 +41,4 @@ jobs:
           [ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion
           export PATH=$PATH:/home/user/.nvm/versions/node/v18.20.7/bin
           export NODE_OPTIONS=\"--max-old-space-size=4096\"
-          cd sizov-project-2 && forever stopall && docker compose up -d"
+          cd sizov-project-2 && docker compose up -d"
