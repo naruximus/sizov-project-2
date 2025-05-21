@@ -24,6 +24,7 @@ services:
     restart: always
     network_mode: host
     volumes:
+      - ./apps/strapi/public:/apps/strapi/public
       - ./apps/strapi:/apps/strapi
       - /apps/strapi/node_modules
       - ./apps/strapi/.tmp:/apps/strapi/.tmp
