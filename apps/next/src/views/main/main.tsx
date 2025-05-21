@@ -23,7 +23,7 @@ export async function Main() {
             <h1 className="text-4xl font-bold">{mainPage.title}</h1>
             <section className="space-y-8">
               <p className="text-lg">
-                С 2007 года держу в руках камеру с 2018 года занимаюсь фото и видео съемкой
+                С 2007[test] года держу в руках камеру с 2018 года занимаюсь фото и видео съемкой
                 профессионально.
               </p>
 
