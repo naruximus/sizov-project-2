@@ -11,8 +11,6 @@ services:
       - '3000:3000'
     depends_on:
       - strapi
-    volumes:
-      - .:/sizov-project-2
 
   strapi:
     build:
@@ -22,4 +20,4 @@ services:
     restart: always
     network_mode: host
     volumes:
-      - .:/sizov-project-2
+      - ./apps/strapi/public/uploads:/sizov/apps/strapi/public/uploads
