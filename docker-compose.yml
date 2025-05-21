@@ -12,9 +12,7 @@ services:
     depends_on:
       - strapi
     volumes:
-      - ./apps/next:/apps/next
-      - /apps/next/node_modules
-      - /apps/next/.next
+      - .:/sizov-project-2
 
   strapi:
     build:
@@ -24,7 +22,4 @@ services:
     restart: always
     network_mode: host
     volumes:
-      - ./apps/strapi/public:/apps/strapi/public
-      - ./apps/strapi:/apps/strapi
-      - /apps/strapi/node_modules
-      - ./apps/strapi/.tmp:/apps/strapi/.tmp
+      - .:/sizov-project-2
