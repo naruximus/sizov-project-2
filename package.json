@@ -9,7 +9,10 @@
     "dev:next": "pnpm run --filter next dev",
     "build:next": "pnpm run --filter next build",
     "lint:next": "pnpm run --filter next lint",
-    "dev:strapi": "pnpm run --filter strapi dev"
+    "dev:strapi": "pnpm run --filter strapi dev",
+    "build:strapi": "pnpm run --filter strapi build",
+    "start:next": "pnpm run --filter next start",
+    "start:strapi": "pnpm run --filter strapi start"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +21,6 @@
     "patchedDependencies": {
       "@types/react-responsive-masonry@2.6.0": "patches/@types__react-responsive-masonry@2.6.0.patch"
     }
-  }
+  },
+  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b"
 }

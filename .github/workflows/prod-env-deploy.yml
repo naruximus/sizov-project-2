@@ -1,0 +1,44 @@
+name: Deploy Strapi to ProdServer
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Deploy reason'
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install sshpass
+        run: sudo apt-get install -y sshpass
+
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.PROD_SERVER_IP }} >> ~/.ssh/known_hosts
+
+      - name: Pull code from branch
+        run: |
+          sshpass -p "${{ secrets.PROD_SERVER_PASSWORD }}" ssh -v ${{ secrets.PROD_SERVER_USER }}@${{ secrets.PROD_SERVER_IP }} "cd sizov-project-2 && git checkout main && git pull"
+
+      - name: Build containers
+        run: |
+          sshpass -p "${{ secrets.PROD_SERVER_PASSWORD }}" ssh -v ${{ secrets.PROD_SERVER_USER }}@${{ secrets.PROD_SERVER_IP }} "
+          export NVM_DIR=\"$HOME/.nvm\"
+          [ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"  # This loads nvm
+          [ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion
+          export PATH=$PATH:/home/user/.nvm/versions/node/v18.20.7/bin
+          cd sizov-project-2 && docker compose build"
+
+      - name: Run containers
+        run: |
+          sshpass -p "${{ secrets.PROD_SERVER_PASSWORD }}" ssh -v ${{ secrets.PROD_SERVER_USER }}@${{ secrets.PROD_SERVER_IP }} "
+          export NVM_DIR=\"$HOME/.nvm\"
+          [ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"  # This loads nvm
+          [ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion
+          export PATH=$PATH:/home/user/.nvm/versions/node/v18.20.7/bin
+          export NODE_OPTIONS=\"--max-old-space-size=4096\"
+          cd sizov-project-2 && docker compose up -d"
