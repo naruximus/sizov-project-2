@@ -11,10 +11,6 @@ services:
       - '3000:3000'
     depends_on:
       - strapi
-    volumes:
-      - ./apps/next:/apps/next
-      - /apps/next/node_modules
-      - /apps/next/.next
 
   strapi:
     build:
@@ -24,6 +20,4 @@ services:
     restart: always
     network_mode: host
     volumes:
-      - ./apps/strapi:/apps/strapi
-      - /apps/strapi/node_modules
-      - ./apps/strapi/.tmp:/apps/strapi/.tmp
+      - ./apps/strapi/public/uploads:/sizov/apps/strapi/public/uploads
