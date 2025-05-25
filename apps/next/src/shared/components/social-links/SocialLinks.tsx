@@ -16,7 +16,7 @@ interface SocialLinksProps {
 const socialLinks: SocialLink[] = [
   {
     icon: Mail,
-    href: 'contact@sizovds.ru',
+    href: 'mailto:contact@sizovds.ru',
     label: 'Написать на email',
     text: 'contact@sizovds.ru',
   },

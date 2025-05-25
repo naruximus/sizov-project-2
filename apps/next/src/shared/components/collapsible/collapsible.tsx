@@ -38,11 +38,11 @@ export function Collapsible({ children, initialHeight = 440, maxHeight = 4000, c
       {needsToggle && (
         <div className="absolute bottom-0 left-0 right-0 flex justify-center">
           {!isExpanded && (
-            <div className="w-full h-20 bg-gradient-to-t from-white to-transparent dark:from-neutral-900 dark:to-transparent" />
+            <div className="w-full h-20 bg-gradient-to-t from-neutral-900 to-transparent" />
           )}
           <button
             onClick={() => setIsExpanded((prevValue) => !prevValue)}
-            className="absolute top-0 flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-neutral-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 self-center"
+            className="absolute top-0 flex items-center justify-center w-12 h-12 rounded-full bg-neutral-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 self-center"
             aria-label={isExpanded ? 'Свернуть' : 'Развернуть'}
           >
             {isExpanded ? <ChevronUp size={35} /> : <ChevronDown size={35} />}
