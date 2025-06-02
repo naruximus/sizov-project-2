@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import { getIntegratedVideos } from '@/entities/integrated-videos';
 import { getMainPage } from '@/entities/main-page';
 import { getImageUrl } from '@/shared/utils/get-image-url';
@@ -20,7 +22,18 @@ export async function Main() {
       <main className="flex flex-col">
         <div className="space-y-8 bg-neutral-900 p-8 md:p-16 text-neutural">
           <div className="max-w-2xl mx-auto space-y-8">
-            <h1 className="text-4xl font-bold">{mainPage.title}</h1>
+            <div className="flex items-center">
+              <h1 className="text-4xl font-bold">{mainPage.title}</h1>
+              <div className="relative w-[25rem] h-60 sm:w-40 sm:h-40 align-middle -ml-10">
+                <Image
+                  src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGlmang0cXVtMnBhdTRrcGdtbmdtb2wzbGs1OHdianZ5cXViN2xrYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/kGNldrILTzYKV5DvXX/giphy.gif"
+                  alt="Title GIF"
+                  fill
+                  className="object-contain"
+                  unoptimized
+                />
+              </div>
+            </div>
             <section className="space-y-8">
               <p className="text-lg">
                 С 2007 года держу в руках камеру с 2018 года занимаюсь фото и видео съемкой
@@ -40,7 +53,7 @@ export async function Main() {
             </section>
           </div>
         </div>
-        <div className="px-8 md:px-16 lg:px-24 py-32">
+        <div className="px-8 md:px-16 lg:px-24 py-20 lg:py-0 lg:pb-32">
           <div className="max-w-6xl mx-auto">
             <VideosSection videos={integratedVideos} />
           </div>
