@@ -7,6 +7,6 @@ import { VerticalVideo } from './vertical-videos.model';
 
 export const getVerticalVideos = createApi({
   method: 'GET',
-  endpoint: '/vertical-videos?populate=*',
+  endpoint: '/vertical-videos?populate=*&pagination[pageSize]=100',
   responseSchema: StrapiResponse(z.array(VerticalVideo)),
 });
