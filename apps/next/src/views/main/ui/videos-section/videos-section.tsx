@@ -11,14 +11,22 @@ interface Props {
 }
 
 export function VideosSection({ videos }: Props) {
-  const [activeVideo, setActiveVideo] = useState(videos[0]);
+  if (videos.length === 0) {
+    return (
+      <section className="flex h-[200px] items-center justify-center bg-stone-900">
+        <p className="text-sm text-gray-500">Нет доступных видео</p>
+      </section>
+    );
+  }
+
+  const [activeVideo, setActiveVideo] = useState<TIntegratedVideo>(videos[0]);
 
   return (
     <section className="flex h-[500px] flex-col-reverse lg:flex-col ">
       <div className="w-full h-full flex bg-stone-900 flex-col lg:flex-row ">
         <iframe
           className="w-full h-full inset-0 m-auto"
-          src={activeVideo.source}
+          src={activeVideo?.source ?? ''}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -51,8 +59,8 @@ export function VideosSection({ videos }: Props) {
         </div>
       </div>
       <div className="py-4 gap-2">
-        <h3 className="text-lg font-bold">{activeVideo.name}</h3>
-        <p className="text-sm text-gray-500">{activeVideo.description}</p>
+        <h3 className="text-lg font-bold">{activeVideo?.name}</h3>
+        <p className="text-sm text-gray-500">{activeVideo?.description}</p>
       </div>
     </section>
   );
