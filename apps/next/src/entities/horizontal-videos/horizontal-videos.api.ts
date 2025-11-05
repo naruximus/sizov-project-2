@@ -7,6 +7,7 @@ import { HorizontalVideo } from './horizontal-videos.model';
 
 export const getHorizontalVideos = createApi({
   method: 'GET',
+  //  TODO(refactor): Replace hard-coded "publishDate" sorting for horizontal/vertical videos
   endpoint: '/horizontal-videos?populate=*&sort=publishedAt:desc',
   responseSchema: StrapiResponse(z.array(HorizontalVideo)),
 });
