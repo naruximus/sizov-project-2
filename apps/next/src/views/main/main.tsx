@@ -42,25 +42,20 @@ export async function Main() {
           
           {/* Авторское изображение на заднем слое */}
           <div
-            className="absolute top-1/2 -translate-y-1/2 opacity-20 pointer-events-none overflow-hidden
-                       w-full max-w-none sm:w-2/3 md:w-1/2 lg:w-1/2 xl:w-1/2
+            className="absolute top-1/2 -translate-y-1/2 opacity-20 pointer-events-none overflow-hidden max-h-[130%]
+                       w-full max-w-none sm:w-2/3 md:w-1/2 lg:w-[30%] xl:w-[30%]
                        right-2 sm:right-0 md:right-0 lg:right-0 xl:right-0
                        left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0"
-            style={{ maxHeight: '100%' }}
             aria-hidden="true"
           >
-              <img
-                src={getImageUrl(mainPage.authorPic.formats.large.url)}
-                alt={mainPage.authorPic.alternativeText ?? 'Автор'}
-                className="select-none w-full h-70vh md:h-[35rem] lg:h-[70rem] object-cover object-center"
-                style={{ 
-                  objectPosition: 'center 30%',
-                  transform: 'scale(1.1)'
-                }}
-                loading="lazy"
-                width={mainPage.authorPic.formats.large.width}
-                height={mainPage.authorPic.formats.large.height}
-              />
+            <img
+              src={getImageUrl(mainPage.authorPic.formats.large.url)}
+              alt={mainPage.authorPic.alternativeText ?? 'Автор'}
+              className="select-none w-full h-70vh md:h-[35rem] lg:w-auto lg:h-auto object-contain lg:object-contain object-center"
+              loading="lazy"
+              width={mainPage.authorPic.formats.large.width}
+              height={mainPage.authorPic.formats.large.height}
+            />
           </div>
         </div>
         <div className="px-8 md:px-16 lg:px-24 py-32">
