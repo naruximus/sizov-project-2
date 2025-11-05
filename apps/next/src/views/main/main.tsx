@@ -18,8 +18,8 @@ export async function Main() {
         poster={getImageUrl(mainPage.videoPoster.formats.small.url)}
       />
       <main className="flex flex-col">
-        <div className="space-y-8 bg-neutral-900 p-8 md:p-16 text-neutural">
-          <div className="max-w-2xl mx-auto space-y-8">
+        <div className="relative space-y-8 bg-neutral-900 p-8 md:p-16 text-neutural">
+          <div className="relative max-w-2xl mx-auto space-y-8">
             <h1 className="text-4xl font-bold">{mainPage.title}</h1>
             <section className="space-y-8">
               <p className="text-lg">
@@ -38,6 +38,24 @@ export async function Main() {
 
               <p className="text-lg">Приятного просмотра!</p>
             </section>
+          </div>
+          
+          {/* Авторское изображение на заднем слое */}
+          <div
+            className="absolute top-1/2 -translate-y-1/2 opacity-20 pointer-events-none overflow-hidden max-h-[130%]
+                       w-full max-w-none sm:w-2/3 md:w-1/2 lg:w-[30%] xl:w-[30%]
+                       right-2 sm:right-0 md:right-0 lg:right-0 xl:right-0
+                       left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0"
+            aria-hidden="true"
+          >
+            <img
+              src={getImageUrl(mainPage.authorPic.formats.large.url)}
+              alt={mainPage.authorPic.alternativeText ?? 'Автор'}
+              className="select-none w-full h-70vh md:h-[35rem] lg:w-auto lg:h-auto object-contain lg:object-contain object-center"
+              loading="lazy"
+              width={mainPage.authorPic.formats.large.width}
+              height={mainPage.authorPic.formats.large.height}
+            />
           </div>
         </div>
         <div className="px-8 md:px-16 lg:px-24 py-32">

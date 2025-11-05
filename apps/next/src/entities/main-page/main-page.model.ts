@@ -8,6 +8,7 @@ export const MainPage = z.object({
   title: z.string(),
   video: StrapiMediaVideo,
   videoPoster: StrapiMedia,
+  authorPic: StrapiMedia,
   documentId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),

@@ -459,6 +459,7 @@ export interface ApiMainPageMainPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    authorPic: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
