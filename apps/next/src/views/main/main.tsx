@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import { getIntegratedVideos } from '@/entities/integrated-videos';
 import { getMainPage } from '@/entities/main-page';
 import { getImageUrl } from '@/shared/utils/get-image-url';
@@ -39,7 +41,7 @@ export async function Main() {
               <p className="text-lg">Приятного просмотра!</p>
             </section>
           </div>
-          
+
           {/* Авторское изображение на заднем слое */}
           <div
             className="absolute top-1/2 -translate-y-1/2 opacity-20 pointer-events-none overflow-hidden max-h-[130%]

@@ -66,7 +66,7 @@ export const VideoPlayer = ({
         videoElement.removeEventListener('loadeddata', handleLoadedData);
       }
     };
-  }, []);
+  }, [isLoaded]);
 
   return (
     <div className="flex justify-center items-center relative">
