@@ -35,7 +35,18 @@ type Props = {
 
 export const MasonryVideos = ({ videos, responsiveProps }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedVideo, setSelectedVideo] = useState<THorizontalVideo>(videos[0]);
+  const [selectedVideo, setSelectedVideo] = useState<THorizontalVideo | null>(
+    videos[0] ?? null,
+  );
+  const { height, width } = useWindowSize();
+
+  if (videos.length === 0 || !selectedVideo) {
+    return (
+      <section className="flex h-[200px] items-center justify-center bg-stone-900">
+        <p className="text-sm text-gray-500">Нет доступных видео</p>
+      </section>
+    );
+  }
 
   const isFirstVideo = videos[0].id === selectedVideo.id;
   const isLastVideo = videos[videos.length - 1].id === selectedVideo.id;
@@ -51,8 +62,6 @@ export const MasonryVideos = ({ videos, responsiveProps }: Props) => {
     const previousIndex = (currentIndex - 1 + videos.length) % videos.length;
     setSelectedVideo(videos[previousIndex]);
   };
-
-  const { height, width } = useWindowSize();
 
   const scaleWidth = width / selectedVideo.preview.width;
   const scaleHeight = height / selectedVideo.preview.height;
