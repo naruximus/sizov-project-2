@@ -1,4 +1,3 @@
-import Image from 'next/image';
 
 import { getIntegratedVideos } from '@/entities/integrated-videos';
 import { getMainPage } from '@/entities/main-page';

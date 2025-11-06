@@ -11,6 +11,7 @@ interface Props {
 }
 
 export function VideosSection({ videos }: Props) {
+  const [activeVideo, setActiveVideo] = useState<TIntegratedVideo>(videos[0]);
   if (videos.length === 0) {
     return (
       <section className="flex h-[200px] items-center justify-center bg-stone-900">
@@ -19,7 +20,7 @@ export function VideosSection({ videos }: Props) {
     );
   }
 
-  const [activeVideo, setActiveVideo] = useState<TIntegratedVideo>(videos[0]);
+
 
   return (
     <section className="flex h-[500px] flex-col-reverse lg:flex-col ">
